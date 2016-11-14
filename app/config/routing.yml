@@ -1,0 +1,7 @@
+fideni_user:
+    resource: "@FideniUserBundle/Resources/config/routing.yml"
+    prefix:   /
+
+app:
+    resource: "@AppBundle/Controller/"
+    type:     annotation
