@@ -61,7 +61,15 @@ doctrine:
 fos_user:
     db_driver: orm # other valid values are 'mongodb', 'couchdb' and 'propel'
     firewall_name: main
-    user_class: Fideni\UserBundle\Entiy\User
+    user_class: Fideni\UserBundle\Entity\User
+
+easy_admin:
+    entities:
+        User:
+            class: Fideni\UserBundle\Entity\User
+    site_name: 'Fideni'
+    design:
+        brand_color: '#f58427'
 
 # Swiftmailer Configuration
 swiftmailer:
