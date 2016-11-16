@@ -70,7 +70,7 @@ class User extends \FOS\UserBundle\Model\User
     protected $formation;
 
     /**
-     * @ORM\OneToMany(targetEntity="Heir", mappedBy="user", cascade={"persist", "remove"} )
+     * @ORM\OneToMany(targetEntity="Heir", mappedBy="User", cascade={"persist", "remove"} )
      */
     protected $heirs;
 
@@ -265,37 +265,4 @@ class User extends \FOS\UserBundle\Model\User
 
 
 
-
-    /**
-     * Add heirs
-     *
-     * @param \Fideni\UserBundle\Entity\Heir $heirs
-     * @return User
-     */
-    public function addHeir(\Fideni\UserBundle\Entity\Heir $heirs)
-    {
-        $this->heirs[] = $heirs;
-
-        return $this;
-    }
-
-    /**
-     * Remove heirs
-     *
-     * @param \Fideni\UserBundle\Entity\Heir $heirs
-     */
-    public function removeHeir(\Fideni\UserBundle\Entity\Heir $heirs)
-    {
-        $this->heirs->removeElement($heirs);
-    }
-
-    /**
-     * Get heirs
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getHeirs()
-    {
-        return $this->heirs;
-    }
 }
