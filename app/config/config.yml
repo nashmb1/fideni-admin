@@ -2,6 +2,7 @@ imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
     - { resource: services.yml }
+    - { resource: easy_admin.yml }
 
 # Put parameters here that don't need to change on each machine where the app is deployed
 # http://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
@@ -63,13 +64,6 @@ fos_user:
     firewall_name: main
     user_class: Fideni\UserBundle\Entity\User
 
-easy_admin:
-    entities:
-        User:
-            class: Fideni\UserBundle\Entity\User
-    site_name: 'Fideni'
-    design:
-        brand_color: '#f58427'
 
 # Swiftmailer Configuration
 swiftmailer:
