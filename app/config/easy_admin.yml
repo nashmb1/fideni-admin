@@ -1,9 +1,4 @@
 easy_admin:
-    entities:
-        User:
-            class: Fideni\UserBundle\Entity\User
-            show:
-    site_name: 'Fideni'
     design:
         brand_color: '#f58427'
     list:

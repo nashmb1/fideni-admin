@@ -1,0 +1,11 @@
+easy_admin:
+    entities:
+        User:
+            class: Fideni\UserBundle\Entity\User
+            list:
+                title: 'Associés'
+            edit:
+                fields: [{property: 'heirs', template: 'heirs_edit.html.twig'}]
+            form:
+                fields:
+                    - {property: 'heirs', type: 'Fideni\UserBundle\Form\HeirType', options: [ data_class: 'Fideni\UserBundle\Entity\Heir']}
