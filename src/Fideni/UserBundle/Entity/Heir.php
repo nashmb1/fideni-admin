@@ -49,6 +49,7 @@ class Heir
     public function getId()
     {
         return $this->id;
+
     }
 
     /**
