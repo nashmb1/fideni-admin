@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+{% trans_default_domain 'FOSUserBundle' %}
+{% block stylesheets %}
+	<link href="{{ asset('bundles/fideniuser/css/login_style.css') }}" rel="stylesheet" type="text/css" media="all" />
+	<link href='//fonts.googleapis.com/css?family=Oxygen:400,700' rel='stylesheet' type='text/css'>
+{% endblock %}
+
+{% block body %}
+	<body>
+	<h1>Fideni</h1>
+	<!--form-stars-here-->
+	<div class="login-form w3-agile">
+		{#<form action="#" method="post">#}
+			{#<p>username</p>#}
+			{#<input type="text" name="username" placeholder=" " required="" />#}
+			{#<p>password</p>#}
+			{#<input type="password" name="password" placeholder="" required="" />#}
+			{#<input type="submit" value="sign in">#}
+		{#</form>#}
+		{#<a href="#">forgot password?</a>#}
+
+		{% if error %}
+			<div class="alert alert-danger">{{ 'error.message' | trans }}</div>
+		{% endif %}
+
+		<form action="{{ path("fos_user_security_check") }}" method="post">
+			{% if csrf_token %}
+				<input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+			{% endif %}
+
+			<p><label for="username">{{ 'security.login.username'|trans }}</label></p>
+			<input type="text" id="username" name="_username" value="{{ last_username }}" required="required" />
+
+			<p><label for="password">{{ 'security.login.password'|trans }}</label></p>
+			<input type="password" id="password" name="_password" required="required" />
+
+			<input type="checkbox" id="remember_me" name="_remember_me" value="on" />
+			<label for="remember_me">{{ 'security.login.remember_me'|trans }}</label>
+
+			<input type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans }}" />
+		</form>
+	</div>
+	<!--//form-ends-here-->
+	<!-- copyright -->
+	<div class="copyright w3-agile">
+		<p> © 2016 Boundary Sign in Form . All rights reserved | Design by <a href="http://w3layouts.com/" target="_blank">W3layouts</a></p>
+	</div>
+	</body>
+{% endblock %}
+
+{% block javascripts %}
+	<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+
+{% endblock %}
+

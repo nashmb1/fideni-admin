@@ -7,7 +7,7 @@ easy_admin:
             edit:
                 fields: [{property: 'heirs', template: 'heirs_edit.html.twig'}]
             show:
-                fields: [{ èèè: 'heirs'}]
+                fields: [{ property: 'heirs', template: 'heirs.html.twig'}]
             form:
                 fields: [ { property: 'heirs', type: 'collection', type_options: { entry_type: 'Fideni\UserBundle\Form\HeirType' }}]
 #                                    fields: [{ property: 'images', type: 'collection', type_options: { entry_type: 'AppBundle\Form\ImageType' }}]
