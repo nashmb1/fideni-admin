@@ -1,4 +1,5 @@
 easy_admin:
+    site_name: 'Fideni Admin'
     design:
         brand_color: '#f58427'
     list:

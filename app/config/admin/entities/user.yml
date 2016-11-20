@@ -2,12 +2,59 @@ easy_admin:
     entities:
         User:
             class: Fideni\UserBundle\Entity\User
+            label: 'Associés'
             list:
                 title: 'Associés'
-            edit:
-                fields: [{property: 'heirs', template: 'heirs_edit.html.twig'}]
+                actions:
+                    - { name: souscrire }
+                fields:
+                    - name
+                    - surname
+                    - email
+                    - { property: tel1, label: app.admin.user.tel }
+                    - last_login
+                    - enabled
+                    - locked
             show:
-                fields: [{ property: 'heirs', template: 'heirs.html.twig'}]
+                title: Detail associé
+                fields:
+                    - id
+                    - username
+                    - email
+                    - name
+                    - surname
+                    - last_login
+                    - locked
+                    - enabled
+                    - formation
+                    - birthDate
+                    - country
+                    - city
+                    - street
+                    - { property: 'tel1', label: 'app.admin.user.tel' }
+                    - { property: roles, label: Droits }
+                    - { property: 'heirs', template: 'heirs.html.twig', label: app.admin.user.heirs}
+            new:
+                title: 'Ajouter un associé'
+                label: 'Ajouter Associé'
+                actions:
+                    - { name: 'new', label: 'Ajouter', icon: 'search' }
+                fields:
+                    - '-formation'
+                    - '-heirs'
+                    - '-birthDate'
             form:
-                fields: [ { property: 'heirs', type: 'collection', type_options: { entry_type: 'Fideni\UserBundle\Form\HeirType' }}]
-#                                    fields: [{ property: 'images', type: 'collection', type_options: { entry_type: 'AppBundle\Form\ImageType' }}]
+                fields:
+                    - username
+                    - email
+                    - password
+                    - { property: 'name', label: 'app.user.name' }
+                    - { property: 'surname', label: 'app.user.surname' }
+                    - formation
+                    - birthDate
+                    - {property: country , type: 'Symfony\Component\Form\Extension\Core\Type\CountryType'}
+                    - city
+                    - street
+                    - { property: 'tel1', label: 'app.user.tel1' }
+                    - 'roles'
+                    - { property: 'heirs', label: 'app.user.heirs',type: 'collection', type_options: { entry_type: 'Fideni\UserBundle\Form\HeirType', by_reference: false, allow_add: true, allow_delete: true }}

@@ -20,7 +20,7 @@
 		{#<a href="#">forgot password?</a>#}
 
 		{% if error %}
-			<div class="alert alert-danger">{{ 'error.message' | trans }}</div>
+			<div class="alert alert-danger">{{ 'user.login.error' | trans ({}, 'messages')}}</div>
 		{% endif %}
 
 		<form action="{{ path("fos_user_security_check") }}" method="post">

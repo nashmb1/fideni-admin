@@ -13,7 +13,7 @@ class HeirType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('name')->add('surname')->add('user')        ;
+        $builder->add('name')->add('surname')->add('tel1')->add('street')->add('city')->add('country')->add('zipCode')        ;
     }
     
     /**

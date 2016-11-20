@@ -1,3 +1,28 @@
-{% for heir in item.heirs %}
-{{ dump(heir) }}
-{% endfor %}
+{% trans_default_domain 'messages' %}
+<ul class="{{ value|length < 2 ? 'inline' }}">
+    {% for heir in value|slice(0, easyadmin_config('show.max_results')) %}
+        <li>
+            <ul class="{{ value|length < 2 ? 'inline' }}">
+                <li>
+                    {{ 'app.admin.user.name' | trans }}: {{ heir.name }}
+                </li>
+                <li>
+                    {{ 'app.admin.user.surname' | trans }}: {{ heir.surname }}
+                </li>
+                <li>
+                    {{ 'app.admin.user.birth_date' | trans }}: {{ heir.birthDate }}
+                </li>
+               <li>
+                    {{ 'app.admin.user.country' | trans }}: {{ heir.country }}
+                </li>
+               <li>
+                    {{ 'app.admin.user.city' | trans }}: {{ heir.city }}
+                </li>
+               <li>
+                    {{ 'app.admin.user.street' | trans }}: {{ heir.street }}
+                </li>
+            </ul>
+            <br>
+        </li>
+    {% endfor %}
+</ul>

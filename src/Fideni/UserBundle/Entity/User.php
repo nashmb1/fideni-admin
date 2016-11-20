@@ -2,7 +2,9 @@
 
 namespace Fideni\UserBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use Fideni\UserBundle\Traits\AddressTrait;
 
 /**
  * User
@@ -12,56 +14,18 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class User extends \FOS\UserBundle\Model\User
 {
+    
+    use AddressTrait;
+
     /**
      * @var int
+     *
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     protected $id;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="name", type="string", length=255, nullable=true)
-     */
-    protected $name;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="surname", type="string", length=255, nullable=true)
-     */
-    protected $surname;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="tel1", type="string", length=255, nullable=true)
-     */
-    protected $tel1;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="tel2", type="string", length=255, nullable=true, unique=true)
-     */
-    protected $tel2;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="country", type="string", length=255, nullable=true)
-     */
-    protected $country;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="city", type="string", length=255, nullable=true)
-     */
-    protected $city;
-
+    
     /**
      * @var string
      *
@@ -70,157 +34,15 @@ class User extends \FOS\UserBundle\Model\User
     protected $formation;
 
     /**
-     * @ORM\OneToMany(targetEntity="Heir", mappedBy="user", cascade={"persist", "remove"} )
+     * @ORM\OneToMany(targetEntity="Heir", mappedBy="user", cascade={"persist", "remove"}, orphanRemoval=true )
      */
     protected $heirs;
-
-
-    /**
-     * Get id
-     *
-     * @return integer 
-     */
-    public function getId()
+    
+    
+    public function __construct()
     {
-        return $this->id;
-    }
-
-    /**
-     * Set name
-     *
-     * @param string $name
-     * @return User
-     */
-    public function setName($name)
-    {
-        $this->name = $name;
-
-        return $this;
-    }
-
-    /**
-     * Get name
-     *
-     * @return string 
-     */
-    public function getName()
-    {
-        return $this->name;
-    }
-
-    /**
-     * Set surname
-     *
-     * @param string $surname
-     * @return User
-     */
-    public function setSurname($surname)
-    {
-        $this->surname = $surname;
-
-        return $this;
-    }
-
-    /**
-     * Get surname
-     *
-     * @return string 
-     */
-    public function getSurname()
-    {
-        return $this->surname;
-    }
-
-    /**
-     * Set tel1
-     *
-     * @param string $tel1
-     * @return User
-     */
-    public function setTel1($tel1)
-    {
-        $this->tel1 = $tel1;
-
-        return $this;
-    }
-
-    /**
-     * Get tel1
-     *
-     * @return string 
-     */
-    public function getTel1()
-    {
-        return $this->tel1;
-    }
-
-    /**
-     * Set tel2
-     *
-     * @param string $tel2
-     * @return User
-     */
-    public function setTel2($tel2)
-    {
-        $this->tel2 = $tel2;
-
-        return $this;
-    }
-
-    /**
-     * Get tel2
-     *
-     * @return string 
-     */
-    public function getTel2()
-    {
-        return $this->tel2;
-    }
-
-    /**
-     * Set country
-     *
-     * @param string $country
-     * @return User
-     */
-    public function setCountry($country)
-    {
-        $this->country = $country;
-
-        return $this;
-    }
-
-    /**
-     * Get country
-     *
-     * @return string 
-     */
-    public function getCountry()
-    {
-        return $this->country;
-    }
-
-    /**
-     * Set city
-     *
-     * @param string $city
-     * @return User
-     */
-    public function setCity($city)
-    {
-        $this->city = $city;
-
-        return $this;
-    }
-
-    /**
-     * Get city
-     *
-     * @return string 
-     */
-    public function getCity()
-    {
-        return $this->city;
+        parent::__construct();
+        $this->heirs = new ArrayCollection();
     }
 
     /**
@@ -263,18 +85,19 @@ class User extends \FOS\UserBundle\Model\User
         return $this->credentialsExpireAt;
     }
 
-
-
-
+    
     /**
      * Add heirs
      *
-     * @param \Fideni\UserBundle\Entity\Heir $heirs
+     * @param \Fideni\UserBundle\Entity\Heir $heir
      * @return User
      */
-    public function addHeir(\Fideni\UserBundle\Entity\Heir $heirs)
+    public function addHeir(\Fideni\UserBundle\Entity\Heir $heir)
     {
-        $this->heirs[] = $heirs;
+        if(!$this->heirs->contains($heir)){
+            $this->heirs->add($heir);
+            $heir->setUser($this);
+        }
 
         return $this;
     }
@@ -282,11 +105,12 @@ class User extends \FOS\UserBundle\Model\User
     /**
      * Remove heirs
      *
-     * @param \Fideni\UserBundle\Entity\Heir $heirs
+     * @param \Fideni\UserBundle\Entity\Heir $heir
      */
-    public function removeHeir(\Fideni\UserBundle\Entity\Heir $heirs)
+    public function removeHeir(\Fideni\UserBundle\Entity\Heir $heir)
     {
-        $this->heirs->removeElement($heirs);
+//        dump($heir);die;
+        $this->heirs->removeElement($heir);
     }
 
     /**

@@ -1,0 +1,15 @@
+user:
+    login:
+        error: 'Erreur de connexion'
+app:
+    admin:
+        user:
+            tel: Téléphone
+            heirs: Héritiers
+            name: Prénom
+            surname: Nom
+            birth_date: Date de naissance
+            country: Pays
+            city: Ville
+            street: Rue
+

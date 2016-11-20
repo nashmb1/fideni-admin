@@ -3,6 +3,7 @@
 namespace Fideni\UserBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Fideni\UserBundle\Traits\AddressTrait;
 
 /**
  * Heir
@@ -12,6 +13,8 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Heir
 {
+    use AddressTrait;
+
     /**
      * @var int
      *
@@ -19,100 +22,34 @@ class Heir
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-    private $id;
+    protected $id;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="name", type="string", length=255)
-     */
-    private $name;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="surname", type="string", length=255)
-     */
-    private $surname;
-
-    /**
-     * @ORM\ManyToOne(targetEntity="User", cascade={"persist", "remove"} )
+     * @ORM\ManyToOne(targetEntity="Fideni\UserBundle\Entity\User")
      */
     protected $user;
-
-
-    /**
-     * Get id
-     *
-     * @return integer 
-     */
-    public function getId()
-    {
-        return $this->id;
-
-    }
+    
 
     /**
-     * Set name
+     * Set user
      *
-     * @param string $name
+     * @param \Fideni\UserBundle\Entity\User $user
      * @return Heir
      */
-    public function setName($name)
+    public function setUser(\Fideni\UserBundle\Entity\User $user = null)
     {
-        $this->name = $name;
+        $this->user = $user;
 
         return $this;
     }
 
     /**
-     * Get name
+     * Get user
      *
-     * @return string 
-     */
-    public function getName()
-    {
-        return $this->name;
-    }
-
-    /**
-     * Set surname
-     *
-     * @param string $surname
-     * @return Heir
-     */
-    public function setSurname($surname)
-    {
-        $this->surname = $surname;
-
-        return $this;
-    }
-
-    /**
-     * Get surname
-     *
-     * @return string 
-     */
-    public function getSurname()
-    {
-        return $this->surname;
-    }
-
-    /**
-     * @return mixed
+     * @return \Fideni\UserBundle\Entity\User 
      */
     public function getUser()
     {
         return $this->user;
     }
-
-    /**
-     * @param mixed $user
-     */
-    public function setUser($user)
-    {
-        $this->user = $user;
-    }
-
-    
 }
