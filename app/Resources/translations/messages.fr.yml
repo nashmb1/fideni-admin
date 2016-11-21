@@ -12,4 +12,5 @@ app:
             country: Pays
             city: Ville
             street: Rue
+            subscription: Souscrire
 

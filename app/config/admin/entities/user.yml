@@ -6,7 +6,10 @@ easy_admin:
             list:
                 title: 'Associés'
                 actions:
-                    - { name: souscrire }
+                    - { name: show }
+                    - { name: edit }
+                    - { name: delete }
+                    - { name: subscription, label: app.admin.user.subscription }
                 fields:
                     - name
                     - surname

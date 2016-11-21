@@ -1,0 +1,53 @@
+easy_admin:
+    entities:
+        Subscription:
+            class: Fideni\CoreBundle\Entity\Subscription
+            label: 'Souscription à une action'
+#            list:
+#                title: 'Souscription'
+#                actions:
+#                    - { name: souscrire }
+#                fields:
+#            show:
+#                title: Detail associé
+#                fields:
+#                    - id
+#                    - username
+#                    - email
+#                    - name
+#                    - surname
+#                    - last_login
+#                    - locked
+#                    - enabled
+#                    - formation
+#                    - birthDate
+#                    - country
+#                    - city
+#                    - street
+#                    - { property: 'tel1', label: 'app.admin.user.tel' }
+#                    - { property: roles, label: Droits }
+#                    - { property: 'heirs', template: 'heirs.html.twig', label: app.admin.user.heirs}
+#            new:
+#                title: 'Ajouter un associé'
+#                label: 'Ajouter Associé'
+#                actions:
+#                    - { name: 'new', label: 'Ajouter', icon: 'search' }
+#                fields:
+#                    - '-formation'
+#                    - '-heirs'
+#                    - '-birthDate'
+#            form:
+#                fields:
+#                    - username
+#                    - email
+#                    - password
+#                    - { property: 'name', label: 'app.user.name' }
+#                    - { property: 'surname', label: 'app.user.surname' }
+#                    - formation
+#                    - birthDate
+#                    - {property: country , type: 'Symfony\Component\Form\Extension\Core\Type\CountryType'}
+#                    - city
+#                    - street
+#                    - { property: 'tel1', label: 'app.user.tel1' }
+#                    - 'roles'
+#                    - { property: 'heirs', label: 'app.user.heirs',type: 'collection', type_options: { entry_type: 'Fideni\UserBundle\Form\HeirType', by_reference: false, allow_add: true, allow_delete: true }}
