@@ -15,7 +15,7 @@ easy_admin:
                     - surname
                     - email
                     - { property: tel1, label: app.admin.user.tel }
-                    - last_login
+                    - { property: last_login, type: datetime}
                     - enabled
                     - locked
             show:
@@ -26,7 +26,7 @@ easy_admin:
                     - email
                     - name
                     - surname
-                    - last_login
+                    - { property: last_login, type: datetime }
                     - locked
                     - enabled
                     - formation

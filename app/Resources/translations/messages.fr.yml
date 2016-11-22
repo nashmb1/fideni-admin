@@ -13,4 +13,11 @@ app:
             city: Ville
             street: Rue
             subscription: Souscrire
+        subscription:
+            campaign_number: Numéro de campagne
+            share_price: Prix action
+            start_date: Date début
+            end_date: Date fin
+            share_number: Nombre d'actions
+            user: Actionnaire
 

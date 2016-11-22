@@ -3,51 +3,16 @@ easy_admin:
         Subscription:
             class: Fideni\CoreBundle\Entity\Subscription
             label: 'Souscription à une action'
-#            list:
-#                title: 'Souscription'
-#                actions:
-#                    - { name: souscrire }
-#                fields:
-#            show:
-#                title: Detail associé
-#                fields:
-#                    - id
-#                    - username
-#                    - email
-#                    - name
-#                    - surname
-#                    - last_login
-#                    - locked
-#                    - enabled
-#                    - formation
-#                    - birthDate
-#                    - country
-#                    - city
-#                    - street
-#                    - { property: 'tel1', label: 'app.admin.user.tel' }
-#                    - { property: roles, label: Droits }
-#                    - { property: 'heirs', template: 'heirs.html.twig', label: app.admin.user.heirs}
-#            new:
-#                title: 'Ajouter un associé'
-#                label: 'Ajouter Associé'
-#                actions:
-#                    - { name: 'new', label: 'Ajouter', icon: 'search' }
-#                fields:
-#                    - '-formation'
-#                    - '-heirs'
-#                    - '-birthDate'
-#            form:
-#                fields:
-#                    - username
-#                    - email
-#                    - password
-#                    - { property: 'name', label: 'app.user.name' }
-#                    - { property: 'surname', label: 'app.user.surname' }
-#                    - formation
-#                    - birthDate
-#                    - {property: country , type: 'Symfony\Component\Form\Extension\Core\Type\CountryType'}
-#                    - city
-#                    - street
-#                    - { property: 'tel1', label: 'app.user.tel1' }
-#                    - 'roles'
-#                    - { property: 'heirs', label: 'app.user.heirs',type: 'collection', type_options: { entry_type: 'Fideni\UserBundle\Form\HeirType', by_reference: false, allow_add: true, allow_delete: true }}
+            new:
+                title: "Attribution d'actions à un associé"
+            edit:
+                title: "Modification suscription"
+            form:
+                fields:
+                    - { property: 'campaignNumber', label: 'app.admin.subscription.campaign_number' }
+                    - { property: 'sharePrice', label: 'app.admin.subscription.share_price' }
+                    - { property: 'startDate', label: 'app.admin.subscription.start_date', type_options: { widget: single_text } }
+                    - { property: 'endDate', label: 'app.admin.subscription.end_date', type_options: { widget: single_text } }
+                    - { property: 'sharePrice', label: 'app.admin.subscription.share_price' }
+                    - { property: 'shareNumber', label: 'app.admin.subscription.share_number' }
+                    - { property: 'user', label: 'app.admin.subscription.user' }
