@@ -16,13 +16,17 @@ class AdminController extends BaseAdminController
     public function subscriptionAction()
     {
         $this->entity = $this->get('easyadmin.config.manager')->getEntityConfiguration('Subscription');
+        $easyadmin = $this->request->attributes->get('easyadmin');
+        $entity = $easyadmin['item'];
         $fields = $this->entity['new']['fields'];
-//        dump($fields);die;
+//        dump($fields, $entity);die;
         $subscription = new Subscription();
+        $subscription->setUser($entity);
         $subscription->setCampaignNumber(555);
         $return = $this->redirectToRoute('easyadmin', array(
             'action' => 'new',
-            'entity' => 'Subscription',
+            'form'   =>
+            'entity' => $subscription,
             'entity_fields' => $fields
         ));
         return $return;

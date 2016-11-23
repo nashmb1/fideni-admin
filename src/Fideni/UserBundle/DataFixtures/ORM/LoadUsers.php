@@ -34,9 +34,9 @@ class LoadUsers extends AbstractFixture implements OrderedFixtureInterface, Cont
             $user->setRoles(array('ROLE_USER'));
             $user->setEnabled(true);
 
-            $user->setName('Partner'. $i);
-            $user->setSurname('Partner Father '. $i); 
-            $user->setTel1('+33 88 99 55 44 44');
+            $user->setName('Nassirou'. $i);
+            $user->setSurname('HAROUNA '. $i);
+            $user->setTel1('+33 88 99 55 44 4'.$i);
             $user->setLastLogin(new \DateTime());
 
             $plainPassword = 'password'.$i;

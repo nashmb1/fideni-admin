@@ -50,8 +50,8 @@ easy_admin:
                 fields:
                     - username
                     - email
-                    - password
-                    - { property: 'name', label: 'app.user.name' }
+                    - { property: password, type: password }
+                    - { property: 'name', label: 'app.user.name'}
                     - { property: 'surname', label: 'app.user.surname' }
                     - formation
                     - birthDate

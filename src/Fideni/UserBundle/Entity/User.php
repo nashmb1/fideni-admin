@@ -14,7 +14,7 @@ use Fideni\UserBundle\Traits\AddressTrait;
  */
 class User extends \FOS\UserBundle\Model\User
 {
-    
+
     use AddressTrait;
 
     /**
@@ -25,7 +25,7 @@ class User extends \FOS\UserBundle\Model\User
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     protected $id;
-    
+
     /**
      * @var string
      *
@@ -37,8 +37,8 @@ class User extends \FOS\UserBundle\Model\User
      * @ORM\OneToMany(targetEntity="Heir", mappedBy="user", cascade={"persist", "remove"}, orphanRemoval=true )
      */
     protected $heirs;
-    
-    
+
+
     public function __construct()
     {
         parent::__construct();
@@ -61,7 +61,7 @@ class User extends \FOS\UserBundle\Model\User
     /**
      * Get formation
      *
-     * @return string 
+     * @return string
      */
     public function getFormation()
     {
@@ -85,7 +85,7 @@ class User extends \FOS\UserBundle\Model\User
         return $this->credentialsExpireAt;
     }
 
-    
+
     /**
      * Add heirs
      *
@@ -121,5 +121,9 @@ class User extends \FOS\UserBundle\Model\User
     public function getHeirs()
     {
         return $this->heirs;
+    }
+
+    public function getNameSurname(){
+        return $this->name. ' '. $this->surname;
     }
 }
