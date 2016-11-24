@@ -16,20 +16,36 @@ class AdminController extends BaseAdminController
     public function subscriptionAction()
     {
         $this->entity = $this->get('easyadmin.config.manager')->getEntityConfiguration('Subscription');
+//        $newForm = $this->executeDynamicMethod('create<EntityName>NewForm', array($entity, $fields));
         $easyadmin = $this->request->attributes->get('easyadmin');
+        $entity = $easyadmin['entity'];
+        $action = $easyadmin['view'];
+//        $fields = $entity[$action]['fields'];
+
+//        dump($entity,$action,$this->entity);die;
         $entity = $easyadmin['item'];
-        $fields = $this->entity['new']['fields'];
-//        dump($fields, $entity);die;
+
+//        $entity= $this->entity;
         $subscription = new Subscription();
         $subscription->setUser($entity);
-        $subscription->setCampaignNumber(555);
+        $fields = $this->entity['new']['fields'];
+        $form = $this->createFormBuilder($subscription)
+                      ->add('user', 'entity', array(
+                          'class' => 'Fideni\UserBundle\Entity\User',
+                          'data'  =>  $entity
+                      ))->getForm();
+        $form = $this->createEntityForm($subscription, $fields, 'new');
+//        dump($fields, $entity,$form);die;
+//        return $this->
+//        $subscription->setCampaignNumber(555);
         $return = $this->redirectToRoute('easyadmin', array(
             'action' => 'new',
-            'form'   =>
-            'entity' => $subscription,
-            'entity_fields' => $fields
+//            'entity' => 'Subscription'
+            'form'   => $form,
+//            'entity' => $entity,
+//            'entity_fields' => $fields
         ));
-        return $return;
+//        return $return;
         dump($return);die;
 //        $this->
 //        return $this->redire
