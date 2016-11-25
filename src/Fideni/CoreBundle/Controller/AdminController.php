@@ -9,7 +9,6 @@
 namespace Fideni\CoreBundle\Controller;
 
 use Fideni\CoreBundle\Entity\Subscription;
-use Fideni\CoreBundle\Form\SubscriptionType;
 use JavierEguiluz\Bundle\EasyAdminBundle\Controller\AdminController as BaseAdminController;
 
 class AdminController extends BaseAdminController
