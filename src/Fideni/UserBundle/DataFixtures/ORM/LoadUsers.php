@@ -19,7 +19,7 @@ class LoadUsers extends AbstractFixture implements OrderedFixtureInterface, Cont
 
     public function getOrder()
     {
-        return 10;
+        return 1;
     }
 
     /**
@@ -53,6 +53,8 @@ class LoadUsers extends AbstractFixture implements OrderedFixtureInterface, Cont
 
             $this->addReference('user-'.$i, $user);
             $manager->persist($user);
+
+            $this->addReference('user'.$i, $user);
         }
 
         $user = new User();

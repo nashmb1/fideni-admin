@@ -7,7 +7,11 @@ easy_admin:
                 title: "Attribution d'actions à un associé"
             edit:
                 title: "Modification suscription"
-            form:
+#            list:
+#                fields:
+#                    - inherit
+#                    - { property: 'user', label: 'app.admin.subscription.user', type_options: {property: name_surname} }
+#            form:
                 fields:
                     - { property: 'campaignNumber', label: 'app.admin.subscription.campaign_number' }
                     - { property: 'sharePrice', label: 'app.admin.subscription.share_price' }
