@@ -11,6 +11,10 @@ use Doctrine\Common\Persistence\ObjectManager;
 
 class LoadUsers extends AbstractFixture implements OrderedFixtureInterface, ContainerAwareInterface
 {
+
+    /**
+     * @var ContainerAwareInterface
+     */
     private $container;
 
     public function getOrder()
@@ -18,6 +22,9 @@ class LoadUsers extends AbstractFixture implements OrderedFixtureInterface, Cont
         return 10;
     }
 
+    /**
+     * @param ContainerInterface|null $container
+     */
     public function setContainer(ContainerInterface $container = null)
     {
         $this->container = $container;
@@ -36,6 +43,7 @@ class LoadUsers extends AbstractFixture implements OrderedFixtureInterface, Cont
 
             $user->setName('Nassirou'. $i);
             $user->setSurname('HAROUNA '. $i);
+
             $user->setTel1('+33 88 99 55 44 4'.$i);
             $user->setLastLogin(new \DateTime());
 
@@ -52,7 +60,7 @@ class LoadUsers extends AbstractFixture implements OrderedFixtureInterface, Cont
         $user->setEmail('admin@fideni.com');
         $user->setRoles(array('ROLE_ADMIN'));
         $user->setEnabled(true);
-        $user->setPassword($encoder->encodePassword($user, 'admin'));
+        $user->setPassword($encoder->encodePassword($user, 'admin002'));
         $manager->persist($user);
         $manager->flush();
     }
