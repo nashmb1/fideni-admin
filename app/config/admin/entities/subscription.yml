@@ -11,12 +11,12 @@ easy_admin:
 #                fields:
 #                    - inherit
 #                    - { property: 'user', label: 'app.admin.subscription.user', type_options: {property: name_surname} }
-#            form:
+            form:
                 fields:
                     - { property: 'campaignNumber', label: 'app.admin.subscription.campaign_number' }
                     - { property: 'sharePrice', label: 'app.admin.subscription.share_price' }
-                    - { property: 'startDate', label: 'app.admin.subscription.start_date', type_options: { widget: single_text } }
-                    - { property: 'endDate', label: 'app.admin.subscription.end_date', type_options: { widget: single_text } }
+                    - { property: 'startDate', label: 'app.admin.subscription.start_date' }
+                    - { property: 'endDate', label: 'app.admin.subscription.end_date' }
                     - { property: 'sharePrice', label: 'app.admin.subscription.share_price' }
                     - { property: 'shareNumber', label: 'app.admin.subscription.share_number' }
                     - { property: 'user', label: 'app.admin.subscription.user', type_options: {property: name_surname} }
