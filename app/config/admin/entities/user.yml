@@ -9,7 +9,7 @@ easy_admin:
                     - { name: show }
                     - { name: edit }
                     - { name: delete }
-                    - { name: subscription, label: app.admin.user.subscription }
+                    - { name: subscription, label: app.admin.user.subscription, targert: _blank }
                 fields:
                     - name
                     - surname
