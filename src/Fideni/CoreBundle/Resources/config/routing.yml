@@ -1,3 +1,3 @@
 fideni_core_homepage:
-    path:     /defaultm
+    path:     /
     defaults: { _controller: FideniCoreBundle:Default:index }

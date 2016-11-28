@@ -41,12 +41,6 @@ class AdminController extends BaseAdminController
                 'action' => 'list',
                 'entity' => 'Subscription'
             ));
-            return $this->render($this->entity['templates']['new'], array(
-                'form' => $form->createView(),
-                'entity_fields' => $fields,
-                'entity' => $entity
-            ));
-
         }
 
         return $this->render($this->entity['templates']['new'], array(
