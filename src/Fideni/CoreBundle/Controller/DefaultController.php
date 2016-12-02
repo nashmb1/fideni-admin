@@ -8,6 +8,6 @@ class DefaultController extends Controller
 {
     public function indexAction()
     {
-        return $this->render('FideniCoreBundle::base_layout.html.twig');
+        return $this->render('FideniCoreBundle:default:base_layout.html.twig');
     }
 }
