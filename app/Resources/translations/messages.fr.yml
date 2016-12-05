@@ -4,6 +4,7 @@ user:
 app:
     admin:
         user:
+            label: Associés
             tel: Téléphone
             heirs: Héritiers
             name: Prénom
@@ -14,10 +15,15 @@ app:
             street: Rue
             subscription: Souscrire
         subscription:
+            label: Souscriptions
             campaign_number: Numéro de campagne
             share_price: Prix action
             start_date: Date début
             end_date: Date fin
             share_number: Nombre d'actions
             user: Actionnaire
+        share:
+            label: Actions
+        project:
+            label: Projets
 
