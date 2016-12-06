@@ -5,3 +5,21 @@ fideni_core_homepage:
 projects:
     path:     /projects
     defaults: { _controller: FideniCoreBundle:Ajax:projects }
+
+ajax_global_stats:
+    path: /ajax-global-stats
+    defaults: { _controller: FideniCoreBundle:Ajax:getGlobalStats }
+
+ajax_get_users:
+    path: /ajax-get-all-users
+    defaults: { _controller: FideniCoreBundle:Ajax:getAllUsers }
+
+ajax_get_projects:
+    path: /ajax-get-project/{status}
+    defaults: { _controller: FideniCoreBundle:Ajax:projects }
+    requirements:
+        status: \w+
+
+ajax_get_user_shares:
+    path: /ajax-user-shares
+    defaults: { _controller:  FideniCoreBundle:Ajax:getUserShare }
