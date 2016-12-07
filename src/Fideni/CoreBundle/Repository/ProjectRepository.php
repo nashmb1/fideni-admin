@@ -12,4 +12,8 @@ use Doctrine\ORM\EntityRepository;
  */
 class ProjectRepository extends EntityRepository
 {
+    public function getFinishedProject(){
+        $this->createQueryBuilder()
+             ->ge
+    }
 }
