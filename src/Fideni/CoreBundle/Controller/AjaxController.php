@@ -8,9 +8,12 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 class AjaxController extends Controller
 {
     public function getGlobalStatsAction(){
+
         return new JsonResponse([
-            'bnProject' => 47,
-            'nbUser'    => $this->getDoctrine(),
+            'nbFoundedProject'   => $this->getDoctrine()->getRepository('FideniCoreBundle:Project')->count(true),
+            'nbNotYetFoundedProject'   => $this->getDoctrine()->getRepository('FideniCoreBundle:Project')->count(false),
+            'nbPartners'    => $this->getDoctrine()->getRepository('FideniUserBundle:User')->count(),
+            'shares'       => 26
         ]);
     }
 

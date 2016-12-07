@@ -12,4 +12,9 @@ use Doctrine\ORM\EntityRepository;
  */
 class UserRepository extends EntityRepository
 {
+    public function count(){
+        return $this->createQueryBuilder('u')
+              ->select('count(u.id)')
+              ->getQuery()->getSingleScalarResult();
+    }
 }

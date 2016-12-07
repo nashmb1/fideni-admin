@@ -12,8 +12,12 @@ use Doctrine\ORM\EntityRepository;
  */
 class ProjectRepository extends EntityRepository
 {
-    public function getFinishedProject(){
-        $this->createQueryBuilder()
-             ->ge
+    public function count($isFounded = true){
+
+        return $this->createQueryBuilder('p')
+                    ->select('count(p.id)')
+                    ->where('p.founded = :isFounded')
+                    ->setParameter('isFounded', $isFounded)
+                    ->getQuery()->getSingleScalarResult();
     }
 }

@@ -45,7 +45,7 @@ class Project
     /**
      * @var int
      *
-     * @ORM\Column(name="numberOfPartner", type="integer")
+     * @ORM\Column(name="numberOfPartner", type="integer",  nullable=true)
      */
     private $numberOfPartner;
 
@@ -83,6 +83,14 @@ class Project
      * @ORM\Column(name="leader", type="string", length=255)
      */
     private $leader;
+
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="founded", type="boolean")
+     */
+    private $founded = false;
 
 
     /**
@@ -301,4 +309,25 @@ class Project
     {
         return $this->leader;
     }
+
+    /**
+     * @return string
+     */
+    public function getFounded()
+    {
+        return $this->founded;
+    }
+
+    /**
+     * @param $founded
+     * @return $this
+     */
+    public function setFounded($founded)
+    {
+        $this->founded = $founded;
+
+        return $this;
+    }
+
+
 }
