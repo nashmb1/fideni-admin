@@ -26,4 +26,6 @@ app:
             label: Actions
         project:
             label: Projets
+        campaign:
+            label: Campagnes
 

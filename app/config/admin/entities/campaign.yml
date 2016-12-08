@@ -1,0 +1,7 @@
+easy_admin:
+    entities:
+        Campaign:
+            class: Fideni\CoreBundle\Entity\Campaign
+            label: 'Gestion des campagnes de souscription'
+            new:
+               - { property: enabled, type_options: {}}

@@ -8,6 +8,7 @@
 
 namespace Fideni\CoreBundle\Controller;
 
+use Fideni\CoreBundle\Entity\Campaign;
 use Fideni\CoreBundle\Entity\Subscription;
 use JavierEguiluz\Bundle\EasyAdminBundle\Controller\AdminController as BaseAdminController;
 
@@ -49,4 +50,9 @@ class AdminController extends BaseAdminController
             'entity' => $entity
         ));
     }
+
+    protected function prePersistCampaignEntity(){
+        $this->getDoctrine()->getRepository('FideniCoreBundle:Campaign')->disable();
+    }
+
 }
