@@ -28,6 +28,14 @@ class AdminController extends BaseAdminController
         $this->request->attributes->set('easyadmin', $easyadmin);
         $fields = $this->entity['new']['fields'];
 
+        $campaign = $this->getDoctrine()->getRepository('FideniCoreBundle:Campaign')->getLastEnabled();
+        if($campaign instanceof  Campaign){
+            $subscription->setCampaignNumber($campaign->getId());
+            $subscription->setStartDate($campaign->getStartDate());
+            $subscription->setEndDate($campaign->getEndDate());
+            $subscription->setSharePrice($campaign->getSharePrice());
+        }
+
         $form = $this->createEntityForm($subscription, $fields, 'new');
 
         $form->handleRequest($this->request);
@@ -55,4 +63,13 @@ class AdminController extends BaseAdminController
         $this->getDoctrine()->getRepository('FideniCoreBundle:Campaign')->disable();
     }
 
+//    public function createNewSubscriptionEntity()
+//    {
+//        $easyadmin = $this->request->attributes->get('easyadmin');
+//
+//        $entity = $easyadmin['item'];
+//
+//        dump($entity);die;
+////        return new User(array('ROLE_USER'));
+//    }
 }

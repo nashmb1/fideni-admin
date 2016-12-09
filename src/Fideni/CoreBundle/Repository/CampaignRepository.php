@@ -16,7 +16,20 @@ class CampaignRepository extends EntityRepository
         $this->createQueryBuilder('c')
              ->update()
              ->set('c.enabled', 0)
-//            ->setParameter(enabled, 0)
             ->getQuery()->execute();
+    }
+
+    public function getLastEnabled(){
+       $result = $this->createQueryBuilder('c')
+             ->select('c')
+            ->where('c.enabled = 1')
+            ->orderBy('c.id', 'desc')
+            ->getQuery()->getResult();
+
+        if(!empty($result)){
+            return $result[0];
+        }
+
+        return null;
     }
 }

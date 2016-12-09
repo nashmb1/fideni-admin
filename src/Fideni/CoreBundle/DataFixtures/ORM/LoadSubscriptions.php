@@ -16,7 +16,7 @@ class LoadSubscriptions extends AbstractFixture implements OrderedFixtureInterfa
 
     public function getOrder()
     {
-        return 2;
+        return 6;
     }
 
     public function load(ObjectManager $manager)
