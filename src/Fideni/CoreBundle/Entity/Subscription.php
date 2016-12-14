@@ -21,47 +21,25 @@ class Subscription
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
-
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="campaignNumber", type="integer")
-     */
-    private $campaignNumber;
-
-    /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="startDate", type="date")
-     */
-    private $startDate;
-
-    /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="endDate", type="date")
-     */
-    private $endDate;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="sharePrice", type="string", length=255)
-     */
-    private $sharePrice;
-
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="ShareNumber", type="integer")
-     */
-    private $shareNumber;
-
+    
+    
     /**
      * @ORM\ManyToOne(targetEntity="Fideni\UserBundle\Entity\User")
      * @Assert\NotBlank()
      */
     protected $user;
+
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Fideni\CoreBundle\Entity\Campaign", cascade={"persist"})
+     * @Assert\NotBlank()
+     */
+    protected $campaign;
+
+    /**
+     * @ORM\OneToMany(targetEntity="Fideni\CoreBundle\Entity\Share", mappedBy="subscription", cascade={"persist"})
+     */
+    protected $shares;
 
 
     /**
@@ -72,121 +50,6 @@ class Subscription
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Set campaignNumber
-     *
-     * @param integer $campaignNumber
-     * @return Subscription
-     */
-    public function setCampaignNumber($campaignNumber)
-    {
-        $this->campaignNumber = $campaignNumber;
-
-        return $this;
-    }
-
-    /**
-     * Get campaignNumber
-     *
-     * @return integer 
-     */
-    public function getCampaignNumber()
-    {
-        return $this->campaignNumber;
-    }
-
-    /**
-     * Set startDate
-     *
-     * @param \DateTime $startDate
-     * @return Subscription
-     */
-    public function setStartDate($startDate)
-    {
-        $this->startDate = $startDate;
-
-        return $this;
-    }
-
-    /**
-     * Get startDate
-     *
-     * @return \DateTime 
-     */
-    public function getStartDate()
-    {
-        return $this->startDate;
-    }
-
-    /**
-     * Set endDate
-     *
-     * @param \DateTime $endDate
-     * @return Subscription
-     */
-    public function setEndDate($endDate)
-    {
-        $this->endDate = $endDate;
-
-        return $this;
-    }
-
-    /**
-     * Get endDate
-     *
-     * @return \DateTime 
-     */
-    public function getEndDate()
-    {
-        return $this->endDate;
-    }
-
-    /**
-     * Set sharePrice
-     *
-     * @param string $sharePrice
-     * @return Subscription
-     */
-    public function setSharePrice($sharePrice)
-    {
-        $this->sharePrice = $sharePrice;
-
-        return $this;
-    }
-
-    /**
-     * Get sharePrice
-     *
-     * @return string 
-     */
-    public function getSharePrice()
-    {
-        return $this->sharePrice;
-    }
-
-    /**
-     * Set shareNumber
-     *
-     * @param integer $shareNumber
-     * @return Subscription
-     */
-    public function setShareNumber($shareNumber)
-    {
-        $this->shareNumber = $shareNumber;
-
-        return $this;
-    }
-
-    /**
-     * Get shareNumber
-     *
-     * @return integer 
-     */
-    public function getShareNumber()
-    {
-        return $this->shareNumber;
     }
 
     /**
@@ -210,5 +73,66 @@ class Subscription
     public function getUser()
     {
         return $this->user;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCampaign()
+    {
+        return $this->campaign;
+    }
+
+    /**
+     * @param mixed $campaign
+     * @return $this
+     */
+    public function setCampaign($campaign)
+    {
+        $this->campaign = $campaign;
+        
+        return $this;
+    }
+    
+    
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->shares = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add shares
+     *
+     * @param \Fideni\CoreBundle\Entity\Share $shares
+     * @return Subscription
+     */
+    public function addShare(\Fideni\CoreBundle\Entity\Share $shares)
+    {
+        $this->shares[] = $shares;
+
+        return $this;
+    }
+
+    /**
+     * Remove shares
+     *
+     * @param \Fideni\CoreBundle\Entity\Share $shares
+     */
+    public function removeShare(\Fideni\CoreBundle\Entity\Share $shares)
+    {
+        $this->shares->removeElement($shares);
+    }
+
+    /**
+     * Get shares
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getShares()
+    {
+        return $this->shares;
     }
 }

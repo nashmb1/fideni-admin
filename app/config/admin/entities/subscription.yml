@@ -13,10 +13,6 @@ easy_admin:
 #                    - { property: 'user', label: 'app.admin.subscription.user', type_options: {property: name_surname} }
             form:
                 fields:
-                    - { property: 'campaignNumber', label: 'app.admin.subscription.campaign_number' }
-                    - { property: 'sharePrice', label: 'app.admin.subscription.share_price' }
-                    - { property: 'startDate', label: 'app.admin.subscription.start_date' }
-                    - { property: 'endDate', label: 'app.admin.subscription.end_date' }
-                    - { property: 'sharePrice', label: 'app.admin.subscription.share_price' }
-                    - { property: 'shareNumber', label: 'app.admin.subscription.share_number' }
+                    - { property: 'campaign', label: 'app.admin.subscription.campaign', type: 'Fideni\CoreBundle\Form\CampaignType'}
+                    - { property: 'shares', label: 'app.admin.subscription.shares', type: 'collection', type_options: { entry_tpe: 'Fideni\CoreBundle\Form\ShareType', by_reference: false, allow_add: true, allow_delete: true}}
                     - { property: 'user', label: 'app.admin.subscription.user', type_options: {property: name_surname} }

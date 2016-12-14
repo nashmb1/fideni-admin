@@ -50,6 +50,7 @@ class Share
     private $campaignNumber;
 
     /**
+     * @var string
      *
      * @ORM\ManyToOne(targetEntity="Fideni\CoreBundle\Entity\Subscription")
      */
@@ -158,27 +159,4 @@ class Share
         return $this->campaignNumber;
     }
 
-
-    /**
-     * Set subscription
-     *
-     * @param \Fideni\CoreBundle\Entity\Subscription $subscription
-     * @return Share
-     */
-    public function setSubscription(\Fideni\CoreBundle\Entity\Subscription $subscription = null)
-    {
-        $this->subscription = $subscription;
-
-        return $this;
-    }
-
-    /**
-     * Get subscription
-     *
-     * @return \Fideni\CoreBundle\Entity\Subscription 
-     */
-    public function getSubscription()
-    {
-        return $this->subscription;
-    }
 }

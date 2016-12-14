@@ -109,7 +109,6 @@ class User extends \FOS\UserBundle\Model\User
      */
     public function removeHeir(\Fideni\UserBundle\Entity\Heir $heir)
     {
-//        dump($heir);die;
         $this->heirs->removeElement($heir);
     }
 
