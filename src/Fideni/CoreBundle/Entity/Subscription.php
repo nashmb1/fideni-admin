@@ -3,6 +3,7 @@
 namespace Fideni\CoreBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Fideni\UserBundle\Entity\User;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
@@ -134,5 +135,38 @@ class Subscription
     public function getShares()
     {
         return $this->shares;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPartner(){
+
+        if($this->getUser() instanceof  User){
+            return $this->getUser()->getName(). ' ' .$this->getUser()->getSurname();
+        }
+
+        return '';
+    }
+
+    public function getShareNumber()
+    {
+
+        return $this->shares->count();
+    }
+
+    public function getSharePrice()
+    {
+
+        if($this->getCampaign() instanceof  Campaign){
+            return $this->getCampaign()->getSharePrice();
+        }
+
+        return 'NC';
+    }
+
+    public function __toString()
+    {
+        return 'nas';
     }
 }

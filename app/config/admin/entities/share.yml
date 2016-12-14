@@ -3,3 +3,6 @@ easy_admin:
         Share:
             class: Fideni\CoreBundle\Entity\Share
             label: 'Gestion des actions'
+            list:
+                title: 'Les dernières actions'
+

@@ -21,12 +21,6 @@ class Campaign
      */
     private $id;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="campaignNumber", type="string", length=255, unique=true)
-     */
-    private $campaignNumber;
 
     /**
      * @var \DateTime
@@ -65,29 +59,6 @@ class Campaign
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Set campaignNumber
-     *
-     * @param string $campaignNumber
-     * @return Campaign
-     */
-    public function setCampaignNumber($campaignNumber)
-    {
-        $this->campaignNumber = $campaignNumber;
-
-        return $this;
-    }
-
-    /**
-     * Get campaignNumber
-     *
-     * @return string 
-     */
-    public function getCampaignNumber()
-    {
-        return $this->campaignNumber;
     }
 
     /**
@@ -178,5 +149,8 @@ class Campaign
         return $this;
     }
 
-
+    public function __toString()
+    {
+        return 'N° '. $this->id .'---' . $this->startDate->format('Y-m-d') .  '/' . $this->endDate->format('Y-m-d');
+    }
 }

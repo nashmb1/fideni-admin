@@ -22,10 +22,13 @@ app:
             end_date: Date fin
             share_number: Nombre d'actions
             user: Actionnaire
-            campaign:
+            campaign: Campagne
             shares: Actions
+            share_number: Nombre d'actions
+            share_price:  Prix action
         share:
             label: Actions
+            id: Numéro action
         project:
             label: Projets
         campaign:

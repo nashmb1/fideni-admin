@@ -28,12 +28,6 @@ class Share
      */
     private $nominalValue;
 
-    /**
-     * @var float
-     *
-     * @ORM\Column(name="price", type="float")
-     */
-    private $price;
 
     /**
      * @var \DateTime
@@ -42,16 +36,10 @@ class Share
      */
     private $acquisitionDate;
 
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="campaignNumber", type="integer")
-     */
-    private $campaignNumber;
 
     /**
      *
-     * @ORM\ManyToOne(targetEntity="Fideni\CoreBundle\Entity\Subscription")
+     * @ORM\ManyToOne(targetEntity="Fideni\CoreBundle\Entity\Subscription", inversedBy="shares")
      */
     private $subscription;
     
@@ -89,28 +77,7 @@ class Share
         return $this->nominalValue;
     }
 
-    /**
-     * Set price
-     *
-     * @param float $price
-     * @return Share
-     */
-    public function setPrice($price)
-    {
-        $this->price = $price;
 
-        return $this;
-    }
-
-    /**
-     * Get price
-     *
-     * @return float 
-     */
-    public function getPrice()
-    {
-        return $this->price;
-    }
 
     /**
      * Set acquisitionDate
@@ -133,29 +100,6 @@ class Share
     public function getAcquisitionDate()
     {
         return $this->acquisitionDate;
-    }
-
-    /**
-     * Set campaignNumber
-     *
-     * @param integer $campaignNumber
-     * @return Share
-     */
-    public function setCampaignNumber($campaignNumber)
-    {
-        $this->campaignNumber = $campaignNumber;
-
-        return $this;
-    }
-
-    /**
-     * Get campaignNumber
-     *
-     * @return integer 
-     */
-    public function getCampaignNumber()
-    {
-        return $this->campaignNumber;
     }
 
 

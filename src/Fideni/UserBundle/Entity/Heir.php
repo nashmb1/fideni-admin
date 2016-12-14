@@ -25,7 +25,7 @@ class Heir
     protected $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Fideni\UserBundle\Entity\User")
+     * @ORM\ManyToOne(targetEntity="Fideni\UserBundle\Entity\User", inversedBy="heirs")
      */
     protected $user;
     

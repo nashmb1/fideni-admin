@@ -125,4 +125,12 @@ class User extends \FOS\UserBundle\Model\User
     public function getNameSurname(){
         return $this->name. ' '. $this->surname;
     }
+
+    /**
+     * @return string
+     */
+    public function __toString()
+    {
+        return $this->name . ' ' . $this->surname;
+    }
 }

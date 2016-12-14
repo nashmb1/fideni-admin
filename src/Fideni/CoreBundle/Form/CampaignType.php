@@ -13,7 +13,7 @@ class CampaignType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('campaignNumber')->add('startDate')->add('endDate')->add('sharePrice')->add('enabled')        ;
+        $builder->add('startDate')->add('endDate')->add('sharePrice')->add('enabled')        ;
     }
     
     /**
