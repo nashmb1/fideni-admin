@@ -6,7 +6,7 @@ easy_admin:
             new:
                 title: "Attribution d'actions à un associé"
             edit:
-                title: "Modification suscription"
+                title: "Modification souscription"
             list:
                 fields:
                     - { property: 'user', label: 'app.admin.subscription.user'}
@@ -17,4 +17,4 @@ easy_admin:
                 fields:
                     - { property: 'campaign', label: 'app.admin.subscription.campaign', type: 'Fideni\CoreBundle\Form\CampaignType'}
                     - { property: 'shares', label: 'app.admin.subscription.shares', type: 'collection', type_options: { entry_type: 'Fideni\CoreBundle\Form\ShareType', by_reference: false, allow_add: true, allow_delete: true}}
-                    - { property: 'user', label: 'app.admin.subscription.user', type_options: {property: name_surname} }
+                    - { property: 'user', label: 'app.admin.subscription.user' }

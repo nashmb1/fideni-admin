@@ -105,26 +105,28 @@ class Subscription
     }
 
     /**
-     * Add shares
+     * Add share
      *
-     * @param \Fideni\CoreBundle\Entity\Share $shares
+     * @param \Fideni\CoreBundle\Entity\Share $share
      * @return Subscription
      */
-    public function addShare(\Fideni\CoreBundle\Entity\Share $shares)
+    public function addShare(\Fideni\CoreBundle\Entity\Share $share)
     {
-        $this->shares[] = $shares;
+//        dump('in', $share);
+        $this->shares[] = $share;
+        $share->setSubscription($this);
 
         return $this;
     }
 
     /**
-     * Remove shares
+     * Remove share
      *
-     * @param \Fideni\CoreBundle\Entity\Share $shares
+     * @param \Fideni\CoreBundle\Entity\Share $share
      */
-    public function removeShare(\Fideni\CoreBundle\Entity\Share $shares)
+    public function removeShare(\Fideni\CoreBundle\Entity\Share $share)
     {
-        $this->shares->removeElement($shares);
+        $this->shares->removeElement($share);
     }
 
     /**

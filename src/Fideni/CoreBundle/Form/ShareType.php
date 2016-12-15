@@ -13,7 +13,7 @@ class ShareType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('nominalValue')->add('acquisitionDate')->add('subscription');
+        $builder->add('nominalValue')->add('acquisitionDate');
     }
     
     /**

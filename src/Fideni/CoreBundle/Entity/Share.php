@@ -54,6 +54,11 @@ class Share
         return $this->id;
     }
 
+    public function __construct()
+    {
+        $this->acquisitionDate = new \DateTime();
+    }
+
     /**
      * Set nominalValue
      *
@@ -124,5 +129,10 @@ class Share
     public function getSubscription()
     {
         return $this->subscription;
+    }
+
+    public function __toString()
+    {
+        return  'Actions n° '. $this->getId();
     }
 }
