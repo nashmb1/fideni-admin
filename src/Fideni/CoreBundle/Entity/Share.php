@@ -3,6 +3,7 @@
 namespace Fideni\CoreBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Fideni\UserBundle\Entity\User;
 
 /**
  * Share
@@ -134,5 +135,32 @@ class Share
     public function __toString()
     {
         return  'Actions n° '. $this->getId();
+    }
+
+    /**
+     * @return string
+     */
+    public function getPrice()
+    {
+        if($this->subscription instanceof Subscription){
+            $campaign = $this->subscription->getCampaign();
+            if($campaign instanceof Campaign){
+                return $campaign->getSharePrice();
+            }
+        }
+
+        return 'NC';
+    }
+
+    public function getPartner()
+    {
+        if($this->subscription instanceof Subscription) {
+            $partner = $this->subscription->getUser();
+            if($partner instanceof User){
+                return $partner->__toString();
+            }
+        }
+
+        return 'NC';
     }
 }

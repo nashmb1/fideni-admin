@@ -13,9 +13,12 @@ class CampaignType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('startDate')->add('endDate')->add('sharePrice')->add('enabled')        ;
+        $builder->add('startDate', 'date', ['label' => 'app.admin.campaign.start_date'])
+            ->add('endDate', 'date', ['label' => 'app.admin.campaign.end_date'])
+            ->add('sharePrice', 'money', ['label' => 'app.admin.campaign.share_price'])
+            ->add('enabled', 'checkbox', ['label' => 'app.admin.campaign.enabled'])        ;
     }
-    
+
     /**
      * {@inheritdoc}
      */

@@ -29,8 +29,17 @@ app:
         share:
             label: Actions
             id: Numéro action
+            nominal_value: Valeur nominale
+            subscription: Souscription
+            price: Prix
+            acquisition_date: Date d'acquisition
+            partner: Associé
         project:
             label: Projets
         campaign:
             label: Campagnes
+            share_price: Prix d'une action
+            start_date: Date de début
+            end_date: Date de fin
+            enabled: Activer
 

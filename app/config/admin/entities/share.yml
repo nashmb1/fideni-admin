@@ -9,6 +9,8 @@ easy_admin:
                 fields:
                     - id
                     - { property: nominalValue, label: app.admin.share.nominal_value }
-                    - acquisitionDate
-                    - { property: subscription, label: app.admin.share.subscription }
+                    - { property: acquisitionDate, label: app.admin.share.acquisition_date }
+                    - { property: price, label: app.admin.share.price }
+                    - { property: subscription, label: app.admin.share.subscription, sortable: false }
+                    - { property: partner, label: app.admin.share.partner }
 
