@@ -112,9 +112,12 @@ class Subscription
      */
     public function addShare(\Fideni\CoreBundle\Entity\Share $share)
     {
-//        dump('in', $share);
-        $this->shares[] = $share;
-        $share->setSubscription($this);
+        if($share instanceof Share){
+            $share->setNominalValue($share->getNominalValue() . '-' . ($this->shares->count() + 1) );
+            $this->shares[] = $share;
+            $share->setSubscription($this);
+
+        }
 
         return $this;
     }
@@ -167,8 +170,14 @@ class Subscription
         return 'NC';
     }
 
+    /**
+     * @return int|string
+     */
     public function __toString()
     {
-        return 'nas';
+        if($this->campaign instanceof  Campaign){
+            return 'Campagne ' . $this->campaign->__toString();
+        }
+        return ''. $this->id;
     }
 }

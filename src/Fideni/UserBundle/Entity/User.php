@@ -122,9 +122,6 @@ class User extends \FOS\UserBundle\Model\User
         return $this->heirs;
     }
 
-    public function getNameSurname(){
-        return $this->name. ' '. $this->surname;
-    }
 
     /**
      * @return string

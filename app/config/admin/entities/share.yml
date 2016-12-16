@@ -3,6 +3,12 @@ easy_admin:
         Share:
             class: Fideni\CoreBundle\Entity\Share
             label: 'Gestion des actions'
+            disabled_actions: ['new', 'edit', 'delete']
             list:
                 title: 'Les dernières actions'
+                fields:
+                    - id
+                    - { property: nominalValue, label: app.admin.share.nominal_value }
+                    - acquisitionDate
+                    - { property: subscription, label: app.admin.share.subscription }
 

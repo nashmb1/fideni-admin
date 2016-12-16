@@ -9,9 +9,10 @@ easy_admin:
                 title: "Modification souscription"
             list:
                 fields:
-                    - { property: 'user', label: 'app.admin.subscription.user'}
-                    - { property: 'campaign', label: 'app.admin.subscription.campaign'}
-                    - { property: 'sharePrice', label: 'app.admin.subscription.share_price' }
+                    - id
+                    - { property: 'user', label: 'app.admin.subscription.user', sortable: false}
+                    - { property: 'campaign', label: 'app.admin.subscription.campaign', sortable: false}
+                    - { property: 'sharePrice', label: 'app.admin.subscription.share_price'}
                     - { property: 'shareNumber', label: 'app.admin.subscription.share_number' }
             form:
                 fields:
