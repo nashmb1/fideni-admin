@@ -1,13 +1,29 @@
-/web/bundles/
-/app/bootstrap.php.cache
-/app/cache/*
+# Cache and logs (Symfony3)
+/var/*
+!/var/cache
+/var/cache/*
+!var/cache/.gitkeep
+!/var/logs
+/var/logs/*
+!var/logs/.gitkeep
+!var/SymfonyRequirements.php
+!var/data/
+var/data/*
+!var/data/.gitkeep
+
+# Parameters
 /app/config/parameters.yml
-/app/logs/*
-!app/cache/.gitkeep
-!app/logs/.gitkeep
-/app/phpunit.xml
-/build/
+
+# Managed by Composer
 /vendor/
-/bin/
+
+# Assets and user uploads
+/web/bundles/
+
+# PHPUnit
+/phpunit.xml
+
+# Composer PHAR
 /composer.phar
+
 .idea/
