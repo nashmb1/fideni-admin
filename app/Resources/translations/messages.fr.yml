@@ -24,8 +24,6 @@ app:
             user: Actionnaire
             campaign: Campagne
             shares: Actions
-            share_number: Nombre d'actions
-            share_price:  Prix action
         share:
             label: Actions
             id: Numéro action

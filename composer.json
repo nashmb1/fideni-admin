@@ -13,7 +13,7 @@
     },
     "require": {
         "php": ">=5.3.9",
-        "symfony/symfony": "2.8.*",
+        "symfony/symfony": "3.2.*",
         "doctrine/orm": "^2.4.8",
         "doctrine/doctrine-bundle": "~1.4",
         "symfony/swiftmailer-bundle": "~2.3",
@@ -52,6 +52,8 @@
     "extra": {
         "symfony-app-dir": "app",
         "symfony-web-dir": "web",
+        "symfony-var-dir": "var",
+        "symfony-bin-dir": "bin",
         "symfony-assets-install": "relative",
         "incenteev-parameters": {
             "file": "app/config/parameters.yml"
