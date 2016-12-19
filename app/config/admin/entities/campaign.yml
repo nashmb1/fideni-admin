@@ -9,10 +9,10 @@ easy_admin:
                     - { property: sharePrice, label: 'app.admin.campaign.share_price'}
                     - { property: startDate, label: 'app.admin.campaign.start_date'}
                     - { property: endDate, label: 'app.admin.campaign.end_date'}
-                    - { property: enable, label: 'app.admin.campaign.enabled'}
+                    - { property: enabled, label: 'app.admin.campaign.enabled'}
             show:
                 fields:
                     - { property: sharePrice, label: 'app.admin.campaign.share_price'}
                     - { property: startDate, label: 'app.admin.campaign.start_date'}
                     - { property: endDate, label: 'app.admin.campaign.end_date'}
-                    - { property: enable, label: 'app.admin.campaign.enabled'}
+                    - { property: enabled, label: 'app.admin.campaign.enabled'}

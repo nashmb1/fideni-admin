@@ -148,7 +148,11 @@ class Campaign
 
         return $this;
     }
+    
 
+    /**
+     * @return string
+     */
     public function __toString()
     {
         return 'N° '. $this->id .'---' . $this->startDate->format('Y-m-d') .  '/' . $this->endDate->format('Y-m-d');

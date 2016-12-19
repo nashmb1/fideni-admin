@@ -3,6 +3,9 @@
 namespace Fideni\CoreBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\MoneyType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -13,10 +16,10 @@ class CampaignType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('startDate', 'date', ['label' => 'app.admin.campaign.start_date'])
-            ->add('endDate', 'date', ['label' => 'app.admin.campaign.end_date'])
-            ->add('sharePrice', 'money', ['label' => 'app.admin.campaign.share_price'])
-            ->add('enabled', 'checkbox', ['label' => 'app.admin.campaign.enabled'])        ;
+        $builder->add('startDate', DateType::class, ['label' => 'app.admin.campaign.start_date'])
+            ->add('endDate', DateType::class, ['label' => 'app.admin.campaign.end_date'])
+            ->add('sharePrice', MoneyType::class, ['label' => 'app.admin.campaign.share_price'])
+            ->add('enabled', CheckboxType::class, ['label' => 'app.admin.campaign.enabled'])        ;
     }
 
     /**

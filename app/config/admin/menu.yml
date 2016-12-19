@@ -6,4 +6,5 @@ easy_admin:
             - { label: 'app.admin.share.label', entity: 'Share' }
             - { label: 'app.admin.project.label', entity: 'Project' }
             - { label: 'app.admin.campaign.label', entity: 'Campaign' }
+            - { label: 'app.admin.cession.label', entity: 'Cession' }
 
