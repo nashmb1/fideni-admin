@@ -3,6 +3,7 @@
 namespace Fideni\CoreBundle\Repository;
 
 use Doctrine\ORM\EntityRepository;
+use Doctrine\ORM\Query\Expr\Join;
 
 /**
  * ShareRepository
@@ -12,4 +13,18 @@ use Doctrine\ORM\EntityRepository;
  */
 class ShareRepository extends EntityRepository
 {
+    public function getUserShareBuilder($userId=null){
+        $qb = $this->createQueryBuilder('s')
+                   ->select('s')
+                   ->innerJoin('s.subscription', 'sub', 'WITH', 'sub.user = :userId')
+                   ->setParameter('userId', $userId);
+
+        return $qb;
+        if(!is_null($userId)){
+            return $qb->where('s.subscription.user_id = :userId')
+                ->setParameter('userId', $userId);
+        }
+
+        return $qb->getQuery()->execute();
+    }
 }

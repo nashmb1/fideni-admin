@@ -9,8 +9,10 @@
 namespace Fideni\CoreBundle\Controller;
 
 use Fideni\CoreBundle\Entity\Campaign;
+use Fideni\CoreBundle\Entity\Cession;
 use Fideni\CoreBundle\Entity\Subscription;
 use JavierEguiluz\Bundle\EasyAdminBundle\Controller\AdminController as BaseAdminController;
+use Fideni\CoreBundle\Form\CessionType;
 
 class AdminController extends BaseAdminController
 {
@@ -59,6 +61,33 @@ class AdminController extends BaseAdminController
         ));
     }
 
+    public function cessionAction(){
+
+        $this->entity = $this->get('easyadmin.config.manager')->getEntityConfiguration('Cession');
+        $easyadmin = $this->request->attributes->get('easyadmin');
+
+        $entity = $easyadmin['item'];
+        $fields = $this->entity['new']['fields'];
+
+        $cession = new Cession();
+        $cession->setSeller($entity);
+//        $form = $this->createEntityForm($subscription, $fields, 'new');
+
+        $shares = $this->getDoctrine()->getRepository('FideniCoreBundle:Share')->getUserShareBuilder($entity->getId());
+//        $form = $this->createForm(CessionType::class, $cession, ['userId' => $entity->getId()]);
+        $form = $this->createEntityForm($cession,$fields,'new');
+        $form->get('shares')->setData($shares);
+//        $form->setData([]);
+        $formOptions = $this->getEntityFormOptions($cession,'new');
+//        dump($formOptions);die;
+        return $this->render($this->entity['templates']['new'], array(
+            'form' => $form->createView(),
+            'entity_fields' => $fields,
+            'entity' => $entity
+        ));
+
+        dump($entity);die;
+    }
 
     protected function prePersistCampaignEntity()
     {

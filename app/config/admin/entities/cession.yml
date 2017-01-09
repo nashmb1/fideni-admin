@@ -2,3 +2,14 @@ easy_admin:
     entities:
         Cession:
             class: Fideni\CoreBundle\Entity\Cession
+
+            new:
+                fields:
+                    - { property: shares, type_options: { multiple: true } }
+
+#            form:
+#                fields:
+#                    - sellingPrice
+#                    - buyer
+#                    - seller
+#                    - { property: shares}
