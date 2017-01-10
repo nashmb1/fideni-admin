@@ -74,9 +74,13 @@ class AdminController extends BaseAdminController
 //        $form = $this->createEntityForm($subscription, $fields, 'new');
 
         $shares = $this->getDoctrine()->getRepository('FideniCoreBundle:Share')->getUserShareBuilder($entity->getId());
-//        $form = $this->createForm(CessionType::class, $cession, ['userId' => $entity->getId()]);
+        $form = $this->createForm(CessionType::class, $cession, ['userId' => $entity->getId()]);
+        dump($this->entity['templates']['new'],$form);
         $form = $this->createEntityForm($cession,$fields,'new');
-        $form->get('shares')->setData($shares);
+                    dump($form);
+//die;
+//        dump($shares);die;
+//        $form->get('shares')->setData($shares);
 //        $form->setData([]);
         $formOptions = $this->getEntityFormOptions($cession,'new');
 //        dump($formOptions);die;

@@ -5,11 +5,11 @@ easy_admin:
 
             new:
                 fields:
-                    - { property: shares, type_options: { multiple: true } }
+                    - { property: shares, type: entity, type_options: { class: FideniCoreBundle:Share, multiple: true } }
 
-#            form:
-#                fields:
-#                    - sellingPrice
-#                    - buyer
-#                    - seller
-#                    - { property: shares}
+            form:
+                fields:
+                    - sellingPrice
+                    - seller
+                    - buyer
+                    - { property: shares, type: entity, type_options: { class: FideniCoreBundle:Share, multiple: true } }
