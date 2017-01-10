@@ -75,9 +75,9 @@ class AdminController extends BaseAdminController
 
         $shares = $this->getDoctrine()->getRepository('FideniCoreBundle:Share')->getUserShareBuilder($entity->getId());
         $form = $this->createForm(CessionType::class, $cession, ['userId' => $entity->getId()]);
-        dump($this->entity['templates']['new'],$form);
+//        dump($this->entity['templates']['new'],$form);
         $form = $this->createEntityForm($cession,$fields,'new');
-                    dump($form);
+//                    dump($form);
 //die;
 //        dump($shares);die;
 //        $form->get('shares')->setData($shares);
@@ -90,7 +90,7 @@ class AdminController extends BaseAdminController
             'entity' => $entity
         ));
 
-        dump($entity);die;
+//        dump($entity);die;
     }
 
     protected function prePersistCampaignEntity()
