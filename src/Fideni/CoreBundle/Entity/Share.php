@@ -43,6 +43,12 @@ class Share
      * @ORM\ManyToOne(targetEntity="Fideni\CoreBundle\Entity\Subscription", inversedBy="shares")
      */
     private $subscription;
+
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Fideni\CoreBundle\Entity\Cession", inversedBy="shares")
+     */
+    private $cession;
     
 
     /**
@@ -163,4 +169,24 @@ class Share
 
         return 'NC';
     }
+
+    /**
+     * @return mixed
+     */
+    public function getCession()
+    {
+        return $this->cession;
+    }
+
+    /**
+     * @param mixed Cession $cession
+     * @return $this
+     */
+    public function setCession(Cession $cession)
+    {
+        $this->cession = $cession;
+        
+        return $this;
+    }
+    
 }
