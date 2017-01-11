@@ -34,7 +34,6 @@ class LoadCampaigns extends AbstractFixture implements OrderedFixtureInterface
                 $campaign->setEnabled(true);
             }
             $campaign->setSharePrice(40 + $i);
-            $campaign->setCampaignNumber($i);
 
             
             $manager->persist($campaign);
