@@ -28,7 +28,7 @@ class CessionType extends AbstractType
                 'multiple' => true,
             ]);
     }
-    
+
     /**
      * {@inheritdoc}
      */
@@ -45,8 +45,7 @@ class CessionType extends AbstractType
      */
     public function getBlockPrefix()
     {
-        return 'fideni_corebundle_cession';
+        return 'cession';
     }
-
 
 }

@@ -44,7 +44,7 @@ class AdminController extends BaseAdminController
 
         if($form->isSubmitted() && $form->isValid()){
             $subscription = $form->getData();
-            $em =  $this->getDoctrine()->getEntityManager();
+            $em =  $this->getDoctrine()->getManager();
             $em->persist($subscription);
             $em->flush();
 
@@ -61,7 +61,11 @@ class AdminController extends BaseAdminController
         ));
     }
 
-    public function cessionAction(){
+    /**
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     */
+    public function cessionAction()
+    {
 
         $this->entity = $this->get('easyadmin.config.manager')->getEntityConfiguration('Cession');
         $easyadmin = $this->request->attributes->get('easyadmin');
@@ -71,26 +75,27 @@ class AdminController extends BaseAdminController
 
         $cession = new Cession();
         $cession->setSeller($entity);
-//        $form = $this->createEntityForm($subscription, $fields, 'new');
 
-        $shares = $this->getDoctrine()->getRepository('FideniCoreBundle:Share')->getUserShareBuilder($entity->getId());
+//        $shares = $this->getDoctrine()->getRepository('FideniCoreBundle:Share')->getUserShareBuilder($entity->getId());
         $form = $this->createForm(CessionType::class, $cession, ['userId' => $entity->getId()]);
-//        dump($this->entity['templates']['new'],$form);
-        $form = $this->createEntityForm($cession,$fields,'new');
-//                    dump($form);
-//die;
-//        dump($shares);die;
-//        $form->get('shares')->setData($shares);
-//        $form->setData([]);
-        $formOptions = $this->getEntityFormOptions($cession,'new');
-//        dump($formOptions);die;
-        return $this->render($this->entity['templates']['new'], array(
+
+        if($form->isSubmitted() && $form->isValid()){
+            $em =  $this->getDoctrine()->getManager();
+            $em->persist($form->getData());
+            $em->flush();
+
+            return $this->redirectToRoute('easyadmin', array(
+                'action' => 'list',
+                'entity' => 'Cession'
+            ));
+        }
+
+        return $this->render('@FideniCore/default/cession.html.twig', array(
             'form' => $form->createView(),
             'entity_fields' => $fields,
             'entity' => $entity
         ));
 
-//        dump($entity);die;
     }
 
     protected function prePersistCampaignEntity()

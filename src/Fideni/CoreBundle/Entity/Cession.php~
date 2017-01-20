@@ -41,7 +41,7 @@ class Cession
     private $seller;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Fideni\CoreBundle\Entity\Share")
+     * @ORM\OneToMany(targetEntity="Fideni\CoreBundle\Entity\Share", mappedBy="cession", cascade={"persist"})
      */
     private $shares;
     
@@ -80,5 +80,87 @@ class Cession
         return $this->sellingPrice;
     }
     
-}
 
+    /**
+     * Set buyer
+     *
+     * @param \Fideni\UserBundle\Entity\User $buyer
+     *
+     * @return Cession
+     */
+    public function setBuyer(\Fideni\UserBundle\Entity\User $buyer = null)
+    {
+        $this->buyer = $buyer;
+
+        return $this;
+    }
+
+    /**
+     * Get buyer
+     *
+     * @return \Fideni\UserBundle\Entity\User
+     */
+    public function getBuyer()
+    {
+        return $this->buyer;
+    }
+
+    /**
+     * Set seller
+     *
+     * @param \Fideni\UserBundle\Entity\User $seller
+     *
+     * @return Cession
+     */
+    public function setSeller(\Fideni\UserBundle\Entity\User $seller = null)
+    {
+        $this->seller = $seller;
+
+        return $this;
+    }
+
+    /**
+     * Get seller
+     *
+     * @return \Fideni\UserBundle\Entity\User
+     */
+    public function getSeller()
+    {
+        return $this->seller;
+    }
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->shares = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add share
+     *
+     * @param \Fideni\CoreBundle\Entity\Share $share
+     *
+     * @return Cession
+     */
+    public function addShare(\Fideni\CoreBundle\Entity\Share $share)
+    {
+        $this->shares[] = $share;
+
+        return $this;
+    }
+
+    /**
+     * Remove share
+     *
+     * @param \Fideni\CoreBundle\Entity\Share $share
+     * @return $this
+     */
+    public function removeShare(\Fideni\CoreBundle\Entity\Share $share)
+    {
+        $this->shares->removeElement($share);
+
+        return  $this;
+    }
+}

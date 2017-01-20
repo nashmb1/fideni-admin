@@ -2,7 +2,6 @@ easy_admin:
     entities:
         Cession:
             class: Fideni\CoreBundle\Entity\Cession
-
             new:
                 fields:
                     - { property: shares, type: entity, type_options: { class: FideniCoreBundle:Share, multiple: true } }
