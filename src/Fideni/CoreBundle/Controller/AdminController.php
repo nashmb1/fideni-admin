@@ -13,6 +13,7 @@ use Fideni\CoreBundle\Entity\Cession;
 use Fideni\CoreBundle\Entity\Subscription;
 use JavierEguiluz\Bundle\EasyAdminBundle\Controller\AdminController as BaseAdminController;
 use Fideni\CoreBundle\Form\CessionType;
+use Symfony\Component\PropertyAccess\PropertyAccess;
 
 class AdminController extends BaseAdminController
 {
@@ -67,6 +68,14 @@ class AdminController extends BaseAdminController
     public function cessionAction()
     {
 
+        $accessor = PropertyAccess::createPropertyAccessor();
+        $person = array(
+            'first_name' => 'Wouter',
+        );
+
+        dump($accessor->getValue($person, '[first_name]'), $accessor->getValue($person, '[age]'));
+
+die;
         $this->entity = $this->get('easyadmin.config.manager')->getEntityConfiguration('Cession');
         $easyadmin = $this->request->attributes->get('easyadmin');
 

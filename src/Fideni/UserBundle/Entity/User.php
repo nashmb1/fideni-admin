@@ -38,11 +38,17 @@ class User extends \FOS\UserBundle\Model\User
      */
     protected $heirs;
 
+    /**
+     * @ORM\Column("created_at", type="datetime")
+     */
+    protected $createdAt;
+
 
     public function __construct()
     {
         parent::__construct();
         $this->heirs = new ArrayCollection();
+        $this->createdAt = new \DateTime('now');
     }
 
     /**
@@ -68,22 +74,6 @@ class User extends \FOS\UserBundle\Model\User
         return $this->formation;
     }
 
-
-    /**
-     * @return \DateTime
-     */
-    public function getExpiresAt()
-    {
-        return $this->expiresAt;
-    }
-
-    /**
-     * @return \DateTime
-     */
-    public function getCredentialsExpireAt()
-    {
-        return $this->credentialsExpireAt;
-    }
 
 
     /**
@@ -120,6 +110,25 @@ class User extends \FOS\UserBundle\Model\User
     public function getHeirs()
     {
         return $this->heirs;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCreatedAt()
+    {
+        return $this->createdAt;
+    }
+
+    /**
+     * @param $createdAt
+     * @return $this
+     */
+    public function setCreatedAt($createdAt)
+    {
+        $this->createdAt = $createdAt;
+
+        return $this;
     }
 
 

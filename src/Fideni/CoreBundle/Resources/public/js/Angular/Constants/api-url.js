@@ -6,5 +6,6 @@
 myApp.constant('ApiUrl', {
     ajax_get_projects: '/ajax-get-project/',
     ajax_global_stats: '/ajax-global-stats',
-    ajax_get_user_shares: '/ajax-user-shares'
+    ajax_get_user_shares: '/ajax-user-shares',
+    ajax_get_all_users: '/ajax-get-all-users'
 });

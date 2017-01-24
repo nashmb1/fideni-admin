@@ -1,0 +1,10 @@
+<h1>Liste des associés</h1>
+<div class="box-body no-padding container">
+    <ul class="users-list list-inline row">
+        <li ng-repeat="partner in partners" class="list-inline col-lg-5">
+            <img src="{{ asset('bundles/fidenicore/img/user5-128x128.jpg') }}" alt="User Image">
+            <a class="users-list-name" href="#">{% verbatim %}{{partner.name}}{%endverbatim%}</a>
+            <span class="users-list-date">Today</span>
+        </li>
+    </ul>
+</div>

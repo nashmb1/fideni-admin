@@ -5,8 +5,15 @@ namespace Fideni\CoreBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\JsonResponse;
 
+/**
+ * Class AjaxController
+ * @package Fideni\CoreBundle\Controller
+ */
 class AjaxController extends Controller
 {
+    /**
+     * @return JsonResponse
+     */
     public function getGlobalStatsAction(){
 
         return new JsonResponse([
@@ -22,8 +29,14 @@ class AjaxController extends Controller
         
     }
 
-    public function getAllUsersAction(){
+    /**
+     * @return JsonResponse
+     */
+    public function getAllUsersAction()
+    {
+        $result = $this->getDoctrine()->getRepository('FideniUserBundle:User')->findAll();
 
+      return new JsonResponse($this->get('fideni_core.object_serializer')->normalize($result));
     }
 
     public function getAllProjectsAction($status){

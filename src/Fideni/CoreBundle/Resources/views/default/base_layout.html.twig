@@ -24,6 +24,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
           apply the skin class to the body tag so the changes take effect.
     -->
     <link rel="stylesheet" href="{{ asset('bundles/fidenicore/css/skins/skin-blue.min.css')}}">
+    <link rel="stylesheet" href="{{ asset('bundles/fidenicore/css/front_stylesheet.css') }}">
 
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
@@ -76,6 +77,7 @@ desired effect
       <!-- Your Page Content Here -->
     {% include('@FideniCore/default/stats_boxes.html.twig') %}
 
+      {% include '@FideniCore/default/users_listing.html.twig' %}
     </section>
     <!-- /.content -->
   </div>
