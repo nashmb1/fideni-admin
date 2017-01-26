@@ -19,6 +19,7 @@ class AppKernel extends Kernel
             new FOS\UserBundle\FOSUserBundle(),
             new \JavierEguiluz\Bundle\EasyAdminBundle\EasyAdminBundle(),
             new Fideni\CoreBundle\FideniCoreBundle(),
+            new \Vich\UploaderBundle\VichUploaderBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'), true)) {
