@@ -8,14 +8,17 @@ use Symfony\Component\DependencyInjection\ContainerAwareInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
+use Symfony\Component\Filesystem\Filesystem;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 class LoadUsers extends AbstractFixture implements OrderedFixtureInterface, ContainerAwareInterface
 {
 
     /**
-     * @var ContainerAwareInterface
+     * @var ContainerInterface
      */
     private $container;
+
 
     public function getOrder()
     {
@@ -33,7 +36,7 @@ class LoadUsers extends AbstractFixture implements OrderedFixtureInterface, Cont
     public function load(ObjectManager $manager)
     {
         $encoder = $this->container->get('security.password_encoder');
-
+        
         foreach (range(0, 19) as $i) {
             $user = new User();
             $user->setUsername('user'.$i);
@@ -41,8 +44,9 @@ class LoadUsers extends AbstractFixture implements OrderedFixtureInterface, Cont
             $user->setRoles(array('ROLE_USER'));
             $user->setEnabled(true);
 
-            $user->setName('Nassirou'. $i);
-            $user->setSurname('HAROUNA '. $i);
+            $user->setName('Nomao'. $i);
+            $user->setSurname('Ozari '. $i);
+//            $user->setPhotoFile($this->getImage());
 
             $user->setTel1('+33 88 99 55 44 4'.$i);
             $user->setLastLogin(new \DateTime());
@@ -61,9 +65,25 @@ class LoadUsers extends AbstractFixture implements OrderedFixtureInterface, Cont
         $user->setUsername('admin');
         $user->setEmail('admin@fideni.com');
         $user->setRoles(array('ROLE_ADMIN'));
+        $user->setName('Boss');
+        $user->setSurname('Imprevu');
+//        $user->setPhotoFile($this->getImage());
         $user->setEnabled(true);
         $user->setPassword($encoder->encodePassword($user, 'admin002'));
         $manager->persist($user);
         $manager->flush();
+    }
+
+    /**
+     * @return UploadedFile
+     */
+    private function getImage()
+    {
+        $rootDir = $this->container->getParameter('kernel.root_dir');
+
+        $fileSystem = new Filesystem();
+        $fileSystem->copy($rootDir. '/../web/bundles/fidenicore/img/nass_tof.JPG', $rootDir. '/../web/bundles/fidenicore/img/nass1_tof.JPG');
+        return new UploadedFile($rootDir. '/../web/bundles/fidenicore/img/nass1_tof.JPG','nass_tof.JPG', null, null, null, true);
+        
     }
 }

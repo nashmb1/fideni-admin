@@ -8,6 +8,7 @@ imports:
 # http://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     locale: fr
+    user_uploads_directory: /uploads/images/user
 
 framework:
     #esi:             ~
@@ -39,6 +40,16 @@ twig:
 #Vich uploader config
 vich_uploader:
     db_driver: orm
+
+    mappings:
+        user_image:
+            uri_prefix: '%user_uploads_directory%'
+            upload_destination: '%kernel.root_dir%/../web/uploads/images/user'
+            namer:  vich_uploader.namer_origname
+            inject_on_load:     false
+            delete_on_update:   true
+            delete_on_remove:   true
+
 
 # Doctrine Configuration
 doctrine:

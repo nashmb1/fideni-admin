@@ -1,3 +1,10 @@
 services:
     fideni_core.object_serializer:
         class: Fideni\CoreBundle\Services\ObjectSerializer
+    fideni_core.image_manager:
+        class: Fideni\CoreBundle\Services\ImageManager
+    image_upload.event_listener:
+        class: Fideni\CoreBundle\EventListeners\VIchEventListener
+        arguments: ['@fideni_core.image_manager']
+        tags:
+            - { name: kernel.event_listener, event: vich_uploader.post_upload, method: onPostUpload }

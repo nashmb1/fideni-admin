@@ -23,6 +23,7 @@ easy_admin:
                 title: Detail associé
                 fields:
                     - id
+                    - { property: 'photo', type: 'image', base_path: '%user_uploads_directory%' }
                     - username
                     - email
                     - name
@@ -51,6 +52,7 @@ easy_admin:
                 fields:
                     - username
                     - email
+                    - { property: photoFile, type: 'vich_image' }
                     - { property: password, type: password }
                     - { property: 'name', label: 'app.user.name'}
                     - { property: 'surname', label: 'app.user.surname' }
