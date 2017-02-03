@@ -12,7 +12,7 @@ namespace Fideni\CoreBundle\EventListeners;
 use Fideni\CoreBundle\Services\ImageManager;
 use Vich\UploaderBundle\Event\Event;
 
-class VIchEventListener
+class VichEventListener
 {
     /**
      * @var ImageManager

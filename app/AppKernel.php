@@ -20,6 +20,7 @@ class AppKernel extends Kernel
             new \JavierEguiluz\Bundle\EasyAdminBundle\EasyAdminBundle(),
             new Fideni\CoreBundle\FideniCoreBundle(),
             new \Vich\UploaderBundle\VichUploaderBundle(),
+            new \Liip\ImagineBundle\LiipImagineBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'), true)) {
