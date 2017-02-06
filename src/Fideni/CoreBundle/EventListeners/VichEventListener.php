@@ -30,15 +30,15 @@ class VichEventListener
 
     public function onPostUpload(Event $event)
     {
-        $object = $event->getObject();
-        $mapping = $event->getMapping();
-
-        $filePath = $mapping->getUploadDestination($object) .'/';
-        $fileName = $filePath.$object->getPhoto();
-
-        dump($object, $mapping, $filePath);die;
-
-        $this->imageManager->resizeImage($fileName, $filePath,0, 160);
+//        $object = $event->getObject();
+//        $mapping = $event->getMapping();
+//
+//        $filePath = $mapping->getUploadDestination($object) .'/';
+//        $fileName = $filePath.$object->getPhoto();
+//
+//        dump($object, $mapping, $filePath);die;
+//
+//        $this->imageManager->resizeImage($fileName, $filePath,0, 160);
 
         // do your stuff with $object and/or $mapping...
     }

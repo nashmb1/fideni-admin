@@ -4,7 +4,7 @@ services:
     fideni_core.image_manager:
         class: Fideni\CoreBundle\Services\ImageManager
     image_upload.event_listener:
-        class: Fideni\CoreBundle\EventListeners\VIchEventListener
+        class: Fideni\CoreBundle\EventListeners\VichEventListener
         arguments: ['@fideni_core.image_manager']
         tags:
             - { name: kernel.event_listener, event: vich_uploader.post_upload, method: onPostUpload }
