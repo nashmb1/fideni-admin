@@ -46,7 +46,7 @@ class LoadUsers extends AbstractFixture implements OrderedFixtureInterface, Cont
 
             $user->setName('Nomao'. $i);
             $user->setSurname('Ozari '. $i);
-//            $user->setPhotoFile($this->getImage());
+            $user->setPhotoFile($this->getImage());
 
             $user->setTel1('+33 88 99 55 44 4'.$i);
             $user->setLastLogin(new \DateTime());
@@ -67,7 +67,7 @@ class LoadUsers extends AbstractFixture implements OrderedFixtureInterface, Cont
         $user->setRoles(array('ROLE_ADMIN'));
         $user->setName('Boss');
         $user->setSurname('Imprevu');
-//        $user->setPhotoFile($this->getImage());
+        $user->setPhotoFile($this->getImage());
         $user->setEnabled(true);
         $user->setPassword($encoder->encodePassword($user, 'admin002'));
         $manager->persist($user);

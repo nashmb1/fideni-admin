@@ -9,6 +9,7 @@ imports:
 parameters:
     locale: fr
     user_uploads_directory: /uploads/images/user
+    upload_dir: '/uploads/images/user/'
 
 framework:
     #esi:             ~
@@ -36,6 +37,8 @@ framework:
 twig:
     debug:            "%kernel.debug%"
     strict_variables: "%kernel.debug%"
+    globals:
+        user_image_resize_dir: '/media/cache/my_thumb/uploads/images/user/'
 
 #Vich uploader config
 vich_uploader:

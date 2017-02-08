@@ -26,7 +26,7 @@ class AjaxController extends Controller
 
     public function projectsAction()
     {
-        
+
     }
 
     /**
@@ -36,7 +36,7 @@ class AjaxController extends Controller
     {
         $result = $this->getDoctrine()->getRepository('FideniUserBundle:User')->findAll();
 
-      return new JsonResponse($this->get('fideni_core.object_serializer')->normalize($result));
+        return new JsonResponse($this->get('fideni_core.data_formatter')->format($result));
     }
 
     public function getAllProjectsAction($status){
