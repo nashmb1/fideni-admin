@@ -72,13 +72,14 @@ desired effect
     </section>
 
     <!-- Main content -->
+    {% block content %}
     <section class="content">
 
       <!-- Your Page Content Here -->
-    {% include('@FideniCore/default/stats_boxes.html.twig') %}
-
+     {% include('@FideniCore/default/stats_boxes.html.twig') %}
       {% include '@FideniCore/default/users_listing.html.twig' %}
     </section>
+    {% endblock %}
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
