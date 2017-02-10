@@ -1,55 +1,69 @@
-{% extends 'base.html.twig' %}
-{% trans_default_domain 'FOSUserBundle' %}
-{% block stylesheets %}
-	<link href="{{ asset('bundles/fideniuser/css/login_style.css') }}" rel="stylesheet" type="text/css" media="all" />
-	<link href='//fonts.googleapis.com/css?family=Oxygen:400,700' rel='stylesheet' type='text/css'>
-{% endblock %}
-
+{% extends '@FideniCore/default/base_layout.html.twig' %}
 {% block body %}
-	<body>
-	<h1>Fideni</h1>
-	<!--form-stars-here-->
-	<div class="login-form w3-agile">
-		{#<form action="#" method="post">#}
-			{#<p>username</p>#}
-			{#<input type="text" name="username" placeholder=" " required="" />#}
-			{#<p>password</p>#}
-			{#<input type="password" name="password" placeholder="" required="" />#}
-			{#<input type="submit" value="sign in">#}
-		{#</form>#}
-		{#<a href="#">forgot password?</a>#}
+{#<!DOCTYPE HTML>#}
+{#<html lang="en">#}
+{#<head>#}
+{#<title>Classic Login Form Responsive Widget Template :: w3layouts</title>#}
+{#<!-- Meta tag Keywords -->#}
+{#<meta name="viewport" content="width=device-width, initial-scale=1">#}
+{#<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />#}
+{#<meta name="keywords" content="Classic Login Form Responsive Widget,Login form widgets, Sign up Web forms , Login signup Responsive web form,Flat Pricing table,Flat Drop downs,Registration Forms,News letter Forms,Elements" />#}
+{#<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);#}
+{#function hideURLbar(){ window.scrollTo(0,1); } </script>#}
+{#<!-- Meta tag Keywords -->#}
 
-		{% if error %}
-			<div class="alert alert-danger">{{ 'user.login.error' | trans ({}, 'messages')}}</div>
-		{% endif %}
+{#<!-- css files -->#}
+{#<link rel="stylesheet" href="css/style.css" type="text/css" media="all" /> <!-- Style-CSS --> #}
+{#<link rel="stylesheet" href="css/font-awesome.css"> <!-- Font-Awesome-Icons-CSS -->#}
+{#<!-- //css files -->#}
 
-		<form action="{{ path("fos_user_security_check") }}" method="post">
-			{% if csrf_token %}
-				<input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
-			{% endif %}
+{#<!-- js -->#}
+{#<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>#}
+{#<!-- //js -->#}
 
-			<p><label for="username">{{ 'security.login.username'|trans }}</label></p>
-			<input type="text" id="username" name="_username" value="{{ last_username }}" required="required" />
+{#<!-- online-fonts -->#}
+{#<link href="//fonts.googleapis.com/css?family=Oleo+Script:400,700&amp;subset=latin-ext" rel="stylesheet">#}
+{#<!-- //online-fonts -->#}
+{#</head>#}
+{#<body>#}
+{#<script src="js/jquery.vide.min.js"></script>#}
+	<!-- main -->
+	<div data-vide-bg="video/Ipad">
+		<div class="center-container">
+			<!--header-->
+			<div class="header-w3l">
+				<h1>Classic Login Form</h1>
+			</div>
+			<!--//header-->
+			<div class="main-content-agile">
+				<div class="sub-main-w3">	
+					<div class="wthree-pro">
+						<h2>Login Here</h2>
+					</div>
+					<form action="{{ path('fos_user_security_check') }}" method="post">
+						<input placeholder="Username or E-mail" name="Name" class="user" type="email" required="">
+						<span class="icon1"><i class="fa fa-user" aria-hidden="true"></i></span><br><br>
+						<input  placeholder="Password" name="Password" class="pass" type="password" required="">
+						<span class="icon2"><i class="fa fa-unlock" aria-hidden="true"></i></span><br>
+						<div class="sub-w3l">
+							<h6><a href="#">Forgot Password?</a></h6>
+							<div class="right-w3l">
+								<input type="submit" value="Login">
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+			<!--//main-->
 
-			<p><label for="password">{{ 'security.login.password'|trans }}</label></p>
-			<input type="password" id="password" name="_password" required="required" />
-
-			<input type="checkbox" id="remember_me" name="_remember_me" value="on" />
-			<label for="remember_me">{{ 'security.login.remember_me'|trans }}</label>
-
-			<input type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans }}" />
-		</form>
+			<!--footer-->
+			<div class="footer">
+				<p>&copy; 2017 Classic Login Form. All rights reserved | Design by <a href="http://w3layouts.com">W3layouts</a></p>
+			</div>
+			<!--//footer-->
+		</div>
 	</div>
-	<!--//form-ends-here-->
-	<!-- copyright -->
-	<div class="copyright w3-agile">
-		<p> © 2016 Boundary Sign in Form . All rights reserved | Design by <a href="http://w3layouts.com/" target="_blank">W3layouts</a></p>
-	</div>
-	</body>
+
+{#</body>#}
+{#</html>#}
 {% endblock %}
-
-{% block javascripts %}
-	<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-
-{% endblock %}
-
