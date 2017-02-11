@@ -32,3 +32,8 @@ liip_imagine :
             quality: 75
             filters:
                 thumbnail: { size: [160, 160] }
+
+        my_favicon:
+            quality: 100
+            filters:
+                thumbnail: { size: [16,16] }

@@ -27,15 +27,22 @@
                     <!-- Menu Toggle Button -->
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         <!-- The user image in the navbar-->
-                        {#{% dump app.user %}#}
-                        <img src="{{ vich_uploader_asset(app.user, 'photoFile')|imagine_filter('my_thumb') }}" class="user-image" alt="User Image">
+                        {% if app.user.photo is defined and app.user.photo is not empty %}
+                            <img src="{{ vich_uploader_asset(app.user, 'photoFile')|imagine_filter('my_thumb') }}" class="user-image" alt="User Image">
+                        {% else %}
+                            <img src="{{ asset('bundles/fidenicore/img/user5-128x128.jpg')|imagine_filter('my_thumb') }}">
+                        {% endif %}
                         <!-- hidden-xs hides the username on small devices so only the image appears. -->
                         <span class="hidden-xs">{{ app.user.name }} {{ app.user.surname }}</span>
                     </a>
                     <ul class="dropdown-menu">
                         <!-- The user image in the menu -->
                         <li class="user-header">
-                            <img src="{{ vich_uploader_asset(app.user, 'photoFile')|imagine_filter('my_thumb') }}" class="img-circle" alt="User Image">
+                            {% if app.user.photo is defined and app.user.photo is not empty %}
+                                <img src="{{ vich_uploader_asset(app.user, 'photoFile')|imagine_filter('my_thumb') }}" class="img-circle" alt="User Image">
+                            {% else %}
+                                <img src="{{ asset('bundles/fidenicore/img/user5-128x128.jpg')|imagine_filter('my_thumb') }}">
+                            {% endif %}
 
                             <p>
                                 {{ app.user.name }} {{ app.user.surname }}

@@ -9,3 +9,9 @@
     max-width: 100%;
     height: auto;
 }
+
+.center-profile-block{
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+}

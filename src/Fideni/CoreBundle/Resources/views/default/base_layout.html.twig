@@ -11,6 +11,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.6 -->
+  <link rel="icon" type="image/x-icon" href="{{ '/bundles/fidenicore/img/logo.jpeg'|imagine_filter('my_favicon') }}" />
+
   {% block stylesheet %}
     <link rel="stylesheet" href="{{ asset('bundles/easyadmin/stylesheet/bootstrap.min.css')}}">
     <!-- Font Awesome -->
@@ -50,13 +52,14 @@ desired effect
 |               | sidebar-mini                            |
 |---------------------------------------------------------|
 -->
+{% block body %}
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
 
-  <!-- Main Header -->
-{% include('@FideniCore/default/header.html.twig') %}
+  {% block header %}
+  {% include('@FideniCore/default/header.html.twig') %}
   <!-- Left side column. contains the logo and sidebar -->
-{% include('@FideniCore/default/sidebar.html.twig') %}
+  {% include('@FideniCore/default/sidebar.html.twig') %}
   <!-- Content Wrapper. Contains page content -->
   <div ng-controller="MainController" class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -70,44 +73,46 @@ desired effect
         <li class="active">Here</li>
       </ol>
     </section>
-
+    {% endblock %}
     <!-- Main content -->
     {% block content %}
-    <section class="content">
+      <section class="content">
 
-      <!-- Your Page Content Here -->
-     {% include('@FideniCore/default/stats_boxes.html.twig') %}
-      {% include '@FideniCore/default/users_listing.html.twig' %}
-    </section>
+        <!-- Your Page Content Here -->
+        {% include('@FideniCore/default/stats_boxes.html.twig') %}
+        {% include '@FideniCore/default/users_listing.html.twig' %}
+      </section>
     {% endblock %}
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
 
   <!-- Main Footer -->
-{% include('@FideniCore/default/footer.html.twig') %}
+  {% include('@FideniCore/default/footer.html.twig') %}
 
   <div class="control-sidebar-bg"></div>
 </div>
 <!-- ./wrapper -->
 
 <!-- REQUIRED JS SCRIPTS -->
-
-<!-- jQuery 2.2.3 -->
-<script src="{{ asset('bundles/easyadmin/javascript/jquery.min.js') }}"></script>
-<!-- Bootstrap 3.3.6 -->
-<script src="{{ asset('bundles/easyadmin/javascript/bootstrap.min.js')}}"></script>
-<!-- AdminLTE App -->
-<script src="{{ asset('bundles/fidenicore/js/app.min.js') }}"></script>
-<script src="{{ asset('bundles/fidenicore/js/Angular/angular.min.js') }}" type="text/javascript"></script>
-<script src="{{ asset('bundles/fidenicore/js/Angular/app.js') }}"></script>
-<script src="{{ asset('bundles/fidenicore/js/Angular/Constants/api-url.js') }}"></script>
-<script src="{{ asset('bundles/fidenicore/js/Angular/Controller/main-controller.js') }}"></script>
-<script src="{{ asset('bundles/fidenicore/js/Angular/Services/httpService.js') }}"></script>
+{% block javascripts %}
+  <!-- jQuery 2.2.3 -->
+  <script src="{{ asset('bundles/easyadmin/javascript/jquery.min.js') }}"></script>
+  <!-- Bootstrap 3.3.6 -->
+  <script src="{{ asset('bundles/easyadmin/javascript/bootstrap.min.js')}}"></script>
+  <!-- AdminLTE App -->
+  <script src="{{ asset('bundles/fidenicore/js/app.min.js') }}"></script>
+  <script src="{{ asset('bundles/fidenicore/js/Angular/angular.min.js') }}" type="text/javascript"></script>
+  <script src="{{ asset('bundles/fidenicore/js/Angular/app.js') }}"></script>
+  <script src="{{ asset('bundles/fidenicore/js/Angular/Constants/api-url.js') }}"></script>
+  <script src="{{ asset('bundles/fidenicore/js/Angular/Controller/main-controller.js') }}"></script>
+  <script src="{{ asset('bundles/fidenicore/js/Angular/Services/httpService.js') }}"></script>
+{% endblock %}
 
 <!-- Optionally, you can add Slimscroll and FastClick plugins.
      Both of these plugins are recommended to enhance the
      user experience. Slimscroll is required when using the
      fixed layout. -->
+{% endblock %}
 </body>
 </html>
