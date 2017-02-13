@@ -1,0 +1,124 @@
+{% extends '@FideniCore/default/base_layout.html.twig' %}
+{% block content %}
+    <div class="col-md-9 col-md-offset-2">
+        <h1>Modifiez vous informations</h1>
+        {% if error %}
+            <div class="alert-error">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+        {% endif %}
+        {{ form_start(form, { 'attr': { 'class': 'form-horizontal'}, 'action': path('fos_user_profile_edit')}) }}
+        <div class="nav-tabs-custom">
+            <div class="tab-pane" id="settings">
+                <div class="form-group">
+                    {{ form_label(form.name,'', { 'label_attr': { 'class': 'col-sm-2 control-label'}}) }}
+                    {{ form_errors(form.name) }}
+                    <div class="col-sm-10">
+                        {{ form_widget(form.name, { 'attr': {'class': 'form-control'}}) }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    {{ form_label(form.surname,'', { 'label_attr': { 'class': 'col-sm-2 control-label'}}) }}
+                    {{ form_errors(form.surname) }}
+                    <div class="col-sm-10">
+                        {{ form_widget(form.surname, { 'attr': {'class': 'form-control'}}) }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    {{ form_label(form.email,'', { 'label_attr': { 'class': 'col-sm-2 control-label'}}) }}
+                    {{ form_errors(form.email) }}
+                    <div class="col-sm-10">
+                        {{ form_widget(form.email, { 'attr': {'class': 'form-control'}}) }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    {{ form_label(form.photoFile,'Photo', { 'label_attr': { 'class': 'col-sm-2 control-label'}}) }}
+                    {{ form_errors(form.photoFile) }}
+                    <div class="col-sm-10">
+                        {{ form_widget(form.photoFile, { 'attr': {'class': 'form-control'}}) }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    {{ form_label(form.formation,'Formation', { 'label_attr': { 'class': 'col-sm-2 control-label'}}) }}
+                    {{ form_errors(form.formation) }}
+                    <div class="col-sm-10">
+                        {{ form_widget(form.formation, { 'attr': {'class': 'form-control'}}) }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    {{ form_label(form.job,'Emploi occupé', { 'label_attr': { 'class': 'col-sm-2 control-label'}}) }}
+                    {{ form_errors(form.job) }}
+                    <div class="col-sm-10">
+                        {{ form_widget(form.job, { 'attr': {'class': 'form-control'}}) }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    {{ form_label(form.jobInFideni,'Role dans Fideni', { 'label_attr': { 'class': 'col-sm-2 control-label'}}) }}
+                    {{ form_errors(form.jobInFideni) }}
+                    <div class="col-sm-10">
+                        {{ form_widget(form.jobInFideni, { 'attr': {'class': 'form-control'}}) }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    {{ form_label(form.experience,'Expérience', { 'label_attr': { 'class': 'col-sm-2 control-label'}}) }}
+                    {{ form_errors(form.experience) }}
+                    <div class="col-sm-10">
+                        {{ form_widget(form.experience, { 'attr': {'class': 'form-control'}}) }}
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    {{ form_label(form.tel1, 'Téléphone', { 'label_attr': { 'class': 'col-sm-2 control-label'}}) }}
+                    {{ form_errors(form.tel1) }}
+                    <div class="col-sm-10">
+                        {{ form_widget(form.tel1, { 'attr': {'class': 'form-control'}}) }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    {{ form_label(form.birthDate, 'Date de naissance', { 'label_attr': { 'class': 'col-sm-2 control-label'}}) }}
+                    {{ form_errors(form.birthDate) }}
+                    <div class="col-sm-10">
+                        {{ form_widget(form.birthDate, { 'attr': {'class': 'form-control'}}) }}
+                    </div>
+                </div>
+                <hr>
+                <h3>Adresse</h3>
+                <div class="form-group">
+                    {{ form_label(form.street, 'Rue', { 'label_attr': { 'class': 'col-sm-2 control-label'}}) }}
+                    {{ form_errors(form.street) }}
+                    <div class="col-sm-10">
+                        {{ form_widget(form.street, { 'attr': {'class': 'form-control'}}) }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    {{ form_label(form.zipCode, 'Code postal', { 'label_attr': { 'class': 'col-sm-2 control-label'}}) }}
+                    {{ form_errors(form.zipCode) }}
+                    <div class="col-sm-10">
+                        {{ form_widget(form.zipCode, { 'attr': {'class': 'form-control'}}) }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    {{ form_label(form.city, 'Ville', { 'label_attr': { 'class': 'col-sm-2 control-label'}}) }}
+                    {{ form_errors(form.city) }}
+                    <div class="col-sm-10">
+                        {{ form_widget(form.city, { 'attr': {'class': 'form-control'}}) }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    {{ form_label(form.country, 'Pays', { 'label_attr': { 'class': 'col-sm-2 control-label'}}) }}
+                    {{ form_errors(form.country) }}
+                    <div class="col-sm-10">
+                        {{ form_widget(form.country, { 'attr': {'class': 'form-control'}}) }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <input type="submit" value="Valider" class="btn btn-primary btn-block">
+                    </div>
+                </div>
+            </div>
+            <!-- /.tab-pane -->
+        </div>
+    </div>
+    <!-- /.tab-content -->
+    {{ form_end(form) }}
+    </div>
+{% endblock %}

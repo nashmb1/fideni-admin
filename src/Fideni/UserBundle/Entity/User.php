@@ -47,7 +47,29 @@ class User extends \FOS\UserBundle\Model\User
      * @ORM\Column(name="formation", type="string", length=255, nullable=true)
      */
     protected $formation;
-
+    
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="experience", type="string", nullable=true)
+     */
+    protected $experience;
+    
+  /**
+     * @var string
+     *
+     * @ORM\Column(name="job", type="string", nullable=true)
+     */
+    protected $job;
+    
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="job_in_fideni", type="string", nullable=true)
+     */
+    protected $jobInFideni;
+    
+    
     /**
      * @ORM\OneToMany(targetEntity="Heir", mappedBy="user", cascade={"persist", "remove"}, orphanRemoval=true )
      */
@@ -221,6 +243,55 @@ class User extends \FOS\UserBundle\Model\User
         return $this;
     }
 
+    /**
+     * @return string
+     */
+    public function getExperience()
+    {
+        return $this->experience;
+    }
+
+    /**
+     * @param string $experience
+     */
+    public function setExperience($experience)
+    {
+        $this->experience = $experience;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getJob()
+    {
+        return $this->job;
+    }
+
+    /**
+     * @param mixed $job
+     */
+    public function setJob($job)
+    {
+        $this->job = $job;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getJobInFideni()
+    {
+        return $this->jobInFideni;
+    }
+
+    /**
+     * @param mixed $jobInFideni
+     */
+    public function setJobInFideni($jobInFideni)
+    {
+        $this->jobInFideni = $jobInFideni;
+    }
+
+    
 
     /**
      * @return string

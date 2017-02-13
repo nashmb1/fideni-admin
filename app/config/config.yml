@@ -40,6 +40,8 @@ twig:
     strict_variables: "%kernel.debug%"
     globals:
         user_image_resize_dir: '/media/cache/my_thumb/uploads/images/user/'
+    form_themes:
+        - 'VichUploaderBundle:Form:fields.html.twig'
 
 #Vich uploader config
 vich_uploader:

@@ -46,7 +46,7 @@ easy_admin:
                     - { name: 'new', label: 'Ajouter', icon: 'search' }
                 fields:
                     - '-formation'
-#                    - '-heirs'
+                    - '-heirs'
                     - '-birthDate'
             form:
                 fields:
