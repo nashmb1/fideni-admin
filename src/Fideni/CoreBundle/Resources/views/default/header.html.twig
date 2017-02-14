@@ -6,7 +6,7 @@
         <!-- mini logo for sidebar mini 50x50 pixels -->
         <span class="logo-mini"><b>F</b>P</span>
         <!-- logo for regular state and mobile devices -->
-        <span class="logo-lg"><b>Fideni </b>PROJECT</span>
+        <span class="logo-lg"><b>Acceuil</b></span>
     </a>
 
     <!-- Header Navbar -->
@@ -18,9 +18,11 @@
         <!-- Navbar Right Menu -->
         <div class="navbar-custom-menu">
             <ul class="nav navbar-nav">
+                {% if is_granted('ROLE_ADMIN') %}
                 <li>
                     <a href="{{ url('easyadmin') }}">Administration</a>
                 </li>
+                {% endif %}
                 {#{{ dump('aa.png'|imagine_filter('my_thumb')) }}#}
                 <!-- User Account Menu -->
                 <li class="dropdown user user-menu">

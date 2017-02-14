@@ -10,7 +10,7 @@ easy_admin:
                     - { name: edit }
                     - { name: delete }
                     - { name: subscription, label: app.admin.user.subscription }
-                    - { name: cession, label: app.admin.user.cession }
+#                    - { name: cession, label: app.admin.user.cession }
                 fields:
                     - name
                     - surname

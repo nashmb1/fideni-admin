@@ -67,15 +67,7 @@ class AdminController extends BaseAdminController
      */
     public function cessionAction()
     {
-
-        $accessor = PropertyAccess::createPropertyAccessor();
-        $person = array(
-            'first_name' => 'Wouter',
-        );
-
-        dump($accessor->getValue($person, '[first_name]'), $accessor->getValue($person, '[age]'));
-
-die;
+        
         $this->entity = $this->get('easyadmin.config.manager')->getEntityConfiguration('Cession');
         $easyadmin = $this->request->attributes->get('easyadmin');
 

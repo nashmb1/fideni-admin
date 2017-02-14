@@ -47,6 +47,10 @@ class LoadUsers extends AbstractFixture implements OrderedFixtureInterface, Cont
             $user->setName('Nomao'. $i);
             $user->setSurname('Ozari '. $i);
             $user->setPhotoFile($this->getImage());
+            $user->setFormation('Réseaux Télécom');
+            $user->setJob('Ingénieur Télécom');
+            $user->setJobInFideni('Fait Tout et Rien');
+            $user->setExperience('Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression');
 
             $user->setTel1('+33 88 99 55 44 4'.$i);
             $user->setLastLogin(new \DateTime());

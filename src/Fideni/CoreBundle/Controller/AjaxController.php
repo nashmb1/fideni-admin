@@ -16,9 +16,9 @@ class AjaxController extends Controller
      */
     public function getGlobalStatsAction(){
 
-        $return = $this->getDoctrine()->getRepository('FideniCoreBundle:Fideni')->findOneBy([]);
-
-        return new JsonResponse($this->get('fideni_core.object_serializer')->normalize($return));
+        $object = $this->getDoctrine()->getRepository('FideniCoreBundle:Fideni')->findOneBy([]);
+        
+        return new JsonResponse($this->get('fideni_core.object_serializer')->normalize($object));
     }
 
     public function projectsAction()
