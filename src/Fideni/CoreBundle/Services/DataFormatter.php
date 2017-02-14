@@ -45,18 +45,22 @@ class DataFormatter
      * @param $data
      * @return array|object|\Symfony\Component\Serializer\Normalizer\scalar
      */
-    public function format($data){
+    public function format($data, $userId)
+    {
         $array = $this->serializer->normalize($data);
-        foreach ($array as $item){
+        $return = [];
+        foreach ($array as $item) {
             $response = $this->imagine
                 ->filterAction(
                     new Request(),
                     $this->uploadDir . $item['photo'],
                     'my_thumb'
                 );
+            if ($item['id'] != $userId) {
+                $return[] = $item;
+            }
+
         }
-
-        return $array;
-
+        return $return;
     }
 }

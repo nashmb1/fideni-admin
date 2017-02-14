@@ -16,12 +16,9 @@ class AjaxController extends Controller
      */
     public function getGlobalStatsAction(){
 
-        return new JsonResponse([
-            'nbFoundedProject'   => $this->getDoctrine()->getRepository('FideniCoreBundle:Project')->count(true),
-            'nbNotYetFoundedProject'   => $this->getDoctrine()->getRepository('FideniCoreBundle:Project')->count(false),
-            'nbPartners'    => $this->getDoctrine()->getRepository('FideniUserBundle:User')->count(),
-            'shares'       => 26
-        ]);
+        $return = $this->getDoctrine()->getRepository('FideniCoreBundle:Fideni')->findOneBy([]);
+
+        return new JsonResponse($this->get('fideni_core.object_serializer')->normalize($return));
     }
 
     public function projectsAction()
@@ -36,7 +33,7 @@ class AjaxController extends Controller
     {
         $result = $this->getDoctrine()->getRepository('FideniUserBundle:User')->findAll();
 
-        return new JsonResponse($this->get('fideni_core.data_formatter')->format($result));
+        return new JsonResponse($this->get('fideni_core.data_formatter')->format($result, $this->getUser()->getId()));
     }
 
     public function getAllProjectsAction($status){
@@ -44,6 +41,14 @@ class AjaxController extends Controller
     }
 
     public function getUserShareAction(){
+
+    }
+
+    /**
+     *
+     */
+    public function getGeneralInformation()
+    {
 
     }
 

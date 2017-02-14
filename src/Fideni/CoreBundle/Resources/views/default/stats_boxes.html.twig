@@ -3,7 +3,7 @@
         <!-- small box -->
         <div class="small-box bg-aqua">
             <div class="inner">
-                <h3>{% verbatim %}{{ statistics.nbPartners}} {% endverbatim %}</h3>
+                <h3>{% verbatim %}{{ fideni.numberOfPartners}} {% endverbatim %}</h3>
 
                 <p>Actionnaires</p>
             </div>
@@ -19,7 +19,7 @@
         <!-- small box -->
         <div class="small-box bg-green">
             <div class="inner">
-                <h3>{% verbatim %}{{ statistics.nbFoundedProject }}{% endverbatim %}</h3>
+                <h3>{% verbatim %}{{ fideni.numberOfProjets }}{% endverbatim %}</h3>
 
                 <p>Projets financés</p>
             </div>
@@ -34,9 +34,9 @@
         <!-- small box -->
         <div class="small-box bg-yellow">
             <div class="inner">
-                <h3>{% verbatim %}{{ statistics.nbNotYetFoundedProject }}{% endverbatim %}</h3>
+                <h3>{% verbatim %}{{ fideni.assetInBank }}{% endverbatim %}</h3>
 
-                <p>Projets en cours</p>
+                <p>Argent en banque</p>
             </div>
             <div class="icon">
                 <i class="ion ion-person-add"></i>
@@ -49,9 +49,9 @@
         <!-- small box -->
         <div class="small-box bg-red">
             <div class="inner">
-                <h3>{% verbatim %}{{ statistics.shares }}{% endverbatim %}</h3>
+                <h3>{% verbatim %}{{ fideni.sharePrice }} CFA {% endverbatim %}</h3>
 
-                <p>Mes actions</p>
+                <p>Cours de l'action</p>
             </div>
             <div class="icon">
                 <i class="ion ion-pie-graph"></i>
@@ -61,3 +61,69 @@
     </div>
     <!-- ./col -->
 </div>
+<div class="row" ng-hide="hideStats">
+    <div class="col-lg-3 col-xs-6">
+        <!-- small box -->
+        <div class="small-box bg-aqua">
+            <div class="inner">
+                <h3>{% verbatim %}{{ fideni.numberOfPartners}} {% endverbatim %}</h3>
+
+                <p>Actionnaires</p>
+            </div>
+            <div class="icon">
+                <i class="ion ion-"></i>
+                {#<i class="ion ion-bag"></i>#}
+            </div>
+            <a na class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+        </div>
+    </div>
+    <!-- ./col -->
+    <div class="col-lg-3 col-xs-6">
+        <!-- small box -->
+        <div class="small-box bg-green">
+            <div class="inner">
+                <h3>{% verbatim %}{{ fideni.numberOfProjets }}{% endverbatim %}</h3>
+
+                <p>Projets financés</p>
+            </div>
+            <div class="icon">
+                <i class="ion ion-stats-bars"></i>
+            </div>
+            <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+        </div>
+    </div>
+    <!-- ./col -->
+    <div class="col-lg-3 col-xs-6">
+        <!-- small box -->
+        <div class="small-box bg-yellow">
+            <div class="inner">
+                <h3>{% verbatim %}{{ fideni.assetInBank }}{% endverbatim %}</h3>
+
+                <p>Argent en banque</p>
+            </div>
+            <div class="icon">
+                <i class="ion ion-person-add"></i>
+            </div>
+            <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+        </div>
+    </div>
+    <!-- ./col -->
+    <div class="col-lg-3 col-xs-6">
+        <!-- small box -->
+        <div class="small-box bg-red">
+            <div class="inner">
+                <h3>{% verbatim %}{{ statistics.sharePrice }} CFA {% endverbatim %}</h3>
+
+                <p>Cours de l'action</p>
+            </div>
+            <div class="icon">
+                <i class="ion ion-pie-graph"></i>
+            </div>
+            <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+        </div>
+    </div>
+    <!-- ./col -->
+</div>
+<script>
+
+</script>
