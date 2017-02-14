@@ -11,10 +11,10 @@
 			<span><img src="{{ asset('bundles/fidenicore/img/logo.jpeg')|imagine_filter('profile_image') }}" alt=""/></span>
 		</div>
 
-		{% if error %}
-			<div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-		{% endif %}
 		<div class="login-top">
+			{% if error %}
+				<div class="login-block-error">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+			{% endif %}
 			<form action="{{ path('fos_user_security_check') }}" method="post">
 				{% if csrf_token %}
 					<input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />

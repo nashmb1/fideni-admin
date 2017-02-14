@@ -2,10 +2,7 @@
 {% block content %}
     <div class="col-md-9 col-md-offset-2">
         <h1>Modifiez vous informations</h1>
-        {% if error %}
-            <div class="alert-error">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-        {% endif %}
-        {{ form_start(form, { 'attr': { 'class': 'form-horizontal'}, 'action': path('fos_user_profile_edit')}) }}
+        {{ form_start(form, { 'attr': { 'class': 'form-horizontal'}, 'action': path('fideni_user_profile_edit')}) }}
         <div class="nav-tabs-custom">
             <div class="tab-pane" id="settings">
                 <div class="form-group">

@@ -6,6 +6,16 @@ projects:
     path:     /projects
     defaults: { _controller: FideniCoreBundle:Ajax:projects }
 
+fideni_user_profile_show:
+    path: /profile/{id}
+    defaults: { _controller: FideniUserBundle:UserProfile:show, id: null }
+    requirements:
+        id: \d*
+
+fideni_user_profile_edit:
+    path: /profile/edit
+    defaults: { _controller: FideniUserBundle:UserProfile:edit }
+
 ajax_global_stats:
     path: /ajax-global-stats
     defaults: { _controller: FideniCoreBundle:Ajax:getGlobalStats }

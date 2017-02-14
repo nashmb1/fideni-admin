@@ -43,4 +43,6 @@ app:
             enabled: Activer
         cession:
             label: Cession
+        fideni:
+            label: Informations générale
 

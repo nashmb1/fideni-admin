@@ -48,6 +48,10 @@ easy_admin:
                     - '-formation'
                     - '-heirs'
                     - '-birthDate'
+            edit:
+                title: 'Modifier'
+                fields:
+                    - '-password'
             form:
                 fields:
                     - username
