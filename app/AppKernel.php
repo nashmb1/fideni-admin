@@ -21,6 +21,7 @@ class AppKernel extends Kernel
             new Fideni\CoreBundle\FideniCoreBundle(),
             new \Vich\UploaderBundle\VichUploaderBundle(),
             new \Liip\ImagineBundle\LiipImagineBundle(),
+            new Liuggio\ExcelBundle\LiuggioExcelBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'), true)) {
