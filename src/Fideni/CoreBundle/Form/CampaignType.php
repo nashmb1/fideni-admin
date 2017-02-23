@@ -18,8 +18,10 @@ class CampaignType extends AbstractType
     {
         $builder->add('startDate', DateType::class, ['label' => 'app.admin.campaign.start_date'])
             ->add('endDate', DateType::class, ['label' => 'app.admin.campaign.end_date'])
-            ->add('sharePrice', MoneyType::class, ['label' => 'app.admin.campaign.share_price'])
-            ->add('enabled', CheckboxType::class, ['label' => 'app.admin.campaign.enabled'])        ;
+            ->add('sharePrice', MoneyType::class, [
+                'label' => 'app.admin.campaign.share_price',
+                'currency' => 'CFA'
+            ])       ;
     }
 
     /**

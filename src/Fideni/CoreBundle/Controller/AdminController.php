@@ -22,6 +22,7 @@ class AdminController extends BaseAdminController
      */
     public function subscriptionAction()
     {
+        $this->get('request_stack')->getCurrentRequest();
         $this->entity = $this->get('easyadmin.config.manager')->getEntityConfiguration('Subscription');
         $easyadmin = $this->request->attributes->get('easyadmin');
 

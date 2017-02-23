@@ -143,20 +143,6 @@ class Share
         return  'Actions n° '. $this->getId();
     }
 
-    /**
-     * @return string
-     */
-    public function getPrice()
-    {
-        if($this->subscription instanceof Subscription){
-            $campaign = $this->subscription->getCampaign();
-            if($campaign instanceof Campaign){
-                return $campaign->getSharePrice();
-            }
-        }
-
-        return 'NC';
-    }
 
     public function getPartner()
     {

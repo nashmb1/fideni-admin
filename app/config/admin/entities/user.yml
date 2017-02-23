@@ -58,13 +58,13 @@ easy_admin:
                     - email
                     - { property: photoFile, type: 'vich_image' }
                     - { property: password, type: password }
-                    - { property: 'name', label: 'app.user.name'}
-                    - { property: 'surname', label: 'app.user.surname' }
+                    - { property: 'name', label: 'app.admin.user.name'}
+                    - { property: 'surname', label: 'app.admin.user.surname' }
                     - formation
-                    - birthDate
+                    - { property: birthDate, type: 'Symfony\Component\Form\Extension\Core\Type\BirthdayType',  label: 'app.admin.user.birth_date'  }
                     - {property: country , type: 'Symfony\Component\Form\Extension\Core\Type\CountryType'}
                     - city
                     - street
-                    - { property: 'tel1', label: 'app.user.tel1' }
+                    - { property: 'tel1', label: 'app.admin.user.tel1' }
                     - 'roles'
-                    - { property: 'heirs', label: 'app.user.heirs',type: 'collection', type_options: { entry_type: 'Fideni\UserBundle\Form\HeirType', by_reference: false, allow_add: true, allow_delete: true }}
+                    - { property: 'heirs', label: 'app.admin.user.heirs',type: 'collection', type_options: { entry_type: 'Fideni\UserBundle\Form\HeirType', by_reference: false, allow_add: true, allow_delete: true }}

@@ -3,6 +3,7 @@
 namespace Fideni\UserBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\BirthdayType;
 use Symfony\Component\Form\Extension\Core\Type\CountryType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
@@ -42,7 +43,7 @@ class UserType extends AbstractType
             ->add('zipCode', IntegerType::class, [
                 'required' => false
             ])
-            ->add('birthDate', DateType::class,[
+            ->add('birthDate', BirthdayType::class,[
                 'html5' => true
             ]);
     }

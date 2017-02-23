@@ -11,6 +11,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  *
  * @ORM\Table(name="subscription")
  * @ORM\Entity(repositoryClass="Fideni\CoreBundle\Repository\SubscriptionRepository")
+ * @ORM\HasLifecycleCallbacks()
  */
 class Subscription
 {
@@ -43,6 +44,18 @@ class Subscription
     protected $shares;
 
 
+    /**
+     * @ORM\Column(name="nb_shares", type="integer", nullable=false)
+     */
+    protected $nbShares;
+
+    /**
+     * @ORM\PrePersist()
+     */
+    public function addShares()
+    {
+        dump('in');
+    }
     /**
      * Get id
      *
@@ -180,4 +193,25 @@ class Subscription
         }
         return ''. $this->id;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getNbShares()
+    {
+        return $this->nbShares;
+    }
+
+    /**
+     * @param mixed $nbShares
+     * @return $this
+     */
+    public function setNbShares($nbShares)
+    {
+        $this->nbShares = $nbShares;
+        
+        return $this;
+    }
+    
+    
 }
