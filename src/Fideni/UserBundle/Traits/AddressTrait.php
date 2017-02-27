@@ -58,7 +58,7 @@ trait AddressTrait
     private $zipCode;
 
     /**
-     * @var Date
+     * @var \DateTime
      * 
      * @ORM\Column(name="birth_date", type="date", nullable=true)
      */
@@ -224,7 +224,7 @@ trait AddressTrait
     }
 
     /**
-     * @param Date $birthDate
+     * @param \DateTime $birthDate
      */
     public function setBirthDate($birthDate)
     {

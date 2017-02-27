@@ -21,18 +21,15 @@ class LoadSubscriptions extends AbstractFixture implements OrderedFixtureInterfa
 
     public function load(ObjectManager $manager)
     {
-        foreach (range(0, 19) as $i) {
-
-            $subscription = new Subscription();
-//            $subscription->setCampaignNumber('000' . ($i + 1));
-//            $subscription->setSharePrice(40);
-//            $subscription->setShareNumber($i + 1);
-//            $subscription->setStartDate(new \DateTime('now'));
-//            $subscription->setEndDate(new \DateTime('now'));
-            $subscription->setUser($this->getReference('user' . $i));
-            
-            $manager->persist($subscription);
-            $manager->flush();
-        }
+//        foreach (range(0, 19) as $i) {
+//
+//            $subscription = new Subscription();
+////            $subscription->setCampaign('000' . ($i + 1));
+//            $subscription->setNbShares($i + 1);
+//            $subscription->setUser($this->getReference('user' . $i));
+//            
+//            $manager->persist($subscription);
+//            $manager->flush();
+//        }
     }
 }

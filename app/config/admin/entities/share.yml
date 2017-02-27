@@ -10,7 +10,7 @@ easy_admin:
                     - id
                     - { property: nominalValue, label: app.admin.share.nominal_value }
                     - { property: acquisitionDate, label: app.admin.share.acquisition_date }
-                    - { property: price, label: app.admin.share.price }
+                    - { property: blockedUntil, label: app.admin.share.blocked_until }
                     - { property: subscription, label: app.admin.share.subscription, sortable: false }
                     - { property: partner, label: app.admin.share.partner }
 

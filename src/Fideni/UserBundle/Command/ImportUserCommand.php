@@ -9,6 +9,9 @@
 namespace Fideni\UserBundle\Command;
 
 
+use Doctrine\ORM\EntityManager;
+use Fideni\CoreBundle\Entity\Campaign;
+use Fideni\CoreBundle\Entity\Subscription;
 use Fideni\UserBundle\Entity\User;
 use Liuggio\ExcelBundle\Factory;
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
@@ -28,6 +31,11 @@ class ImportUserCommand extends ContainerAwareCommand
      */
     private $phpExcel;
 
+    /**
+     * @var EntityManager
+     */
+    private $em;
+
     public function configure()
     {
         $this->setName('fideni:import:user');
@@ -37,6 +45,7 @@ class ImportUserCommand extends ContainerAwareCommand
     {
         $this->xlsFile = $this->getContainer()->getParameter('kernel.root_dir') . '/../var/import/Fiche Associés FIDENi-BDD.xlsx';
         $this->phpExcel = $this->getContainer()->get('phpexcel');
+        $this->em = $this->getContainer()->get('doctrine')->getManager();
     }
 
     public function execute(InputInterface $input, OutputInterface $output)
@@ -49,6 +58,15 @@ class ImportUserCommand extends ContainerAwareCommand
 
         $encoder = $this->getContainer()->get('security.password_encoder');
 
+        $campaign = new Campaign();
+        $campaign->setEnabled(true);
+        $campaign->setSharePrice(40);
+        $campaign->setStartDate(new \DateTime('2015-04-01'));
+        $campaign->setEndDate(new \DateTime('2015-09-30'));
+        
+        $this->em->persist($campaign);
+        $this->em->flush();
+        
         for($i = 3; $i < $maxRow; $i++){
             $name = $workSheet->getCell('C'.$i)->getValue();
             $surname = $workSheet->getCell('D'.$i)->getValue();
@@ -65,7 +83,11 @@ class ImportUserCommand extends ContainerAwareCommand
             $situationFamilial = $workSheet->getCell('V'.$i);
             
             if(!empty($email)){
-                $user  = new User();
+                
+                $user = $this->em->getRepository('FideniUserBundle:User')->findOneBy(['email' => $email]);
+                if(!$user instanceof  User){
+                    $user  = new User();
+                }
                 $user->setUsername($email);
                 $user->setEmail($email);
                 $user->setName($name);
@@ -75,16 +97,50 @@ class ImportUserCommand extends ContainerAwareCommand
                 $user->setJobInFideni('NR');
                 $user->setCountry($country);
                 $user->setStreet($street);
-                $user->setBirthDate($birthDay);
-                $encodedPassword = $encoder->encodePassword($user, strtolower($name .$surname));
+                $user->setFormation($formation);
+                $user->setWorkPlace($company);
+                $user->setSchool($school);
+                $user->setNationality($nationality);
+                $user->setFamilySituation($situationFamilial);
+                $user->setBirthDate($this->getDate($birthDay));
+                $user->setEnabled(false);
+                $encodedPassword = $encoder->encodePassword($user, 'fideniPartnerAdmin45');
                 $user->setPassword($encodedPassword);                
-                $em = $this->getContainer()->get('doctrine')->getManager();
-                $em->persist($user);
-                $em->flush();
+               
+                $this->em->persist($user);
+                $this->em->flush();
+
+                $this->subscribe($user, $campaign);
             }
             
         }
 
 
+    }
+
+    /**
+     * @param $xlsxDate
+     * @return \DateTime
+     */
+    private function getDate($xlsxDate)
+    {
+        $stringDate =  date('Y-m-d', \PHPExcel_Shared_Date::ExcelToPHP($xlsxDate));
+        
+        return new \DateTime($stringDate);
+    }
+
+    /**
+     * @param $user
+     * @param $campaign
+     */
+    private function subscribe($user, $campaign)
+    {
+        $subscription = new Subscription();
+        $subscription->setUser($user);
+        $subscription->setNbShares(10);
+        $subscription->setCampaign($campaign);
+        
+        $this->em->persist($subscription);
+        $this->em->flush();
     }
 }

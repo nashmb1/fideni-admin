@@ -61,6 +61,27 @@ class User extends \FOS\UserBundle\Model\User
      * @ORM\Column(name="job", type="string", nullable=true)
      */
     protected $job;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="school", type="string", nullable=true)
+     */
+    protected $school;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nationality", type="string", nullable=true)
+     */
+    protected $nationality;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="family_situation", type="string", nullable=true)
+     */
+    protected $familySituation;
     
     /**
      * @var string
@@ -68,6 +89,13 @@ class User extends \FOS\UserBundle\Model\User
      * @ORM\Column(name="job_in_fideni", type="string", nullable=true)
      */
     protected $jobInFideni;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="work_place", type="string", nullable=true)
+     */
+    private $workPlace;
     
     
     /**
@@ -300,4 +328,70 @@ class User extends \FOS\UserBundle\Model\User
     {
         return $this->name . ' ' . $this->surname;
     }
+
+    /**
+     * @return string
+     */
+    public function getSchool()
+    {
+        return $this->school;
+    }
+
+    /**
+     * @param string $school
+     */
+    public function setSchool($school)
+    {
+        $this->school = $school;
+    }
+
+    /**
+     * @return string
+     */
+    public function getNationality()
+    {
+        return $this->nationality;
+    }
+
+    /**
+     * @param string $nationality
+     */
+    public function setNationality($nationality)
+    {
+        $this->nationality = $nationality;
+    }
+
+    /**
+     * @return string
+     */
+    public function getFamilySituation()
+    {
+        return $this->familySituation;
+    }
+
+    /**
+     * @param string $familySituation
+     */
+    public function setFamilySituation($familySituation)
+    {
+        $this->familySituation = $familySituation;
+    }
+
+    /**
+     * @return string
+     */
+    public function getWorkPlace()
+    {
+        return $this->workPlace;
+    }
+
+    /**
+     * @param string $workPlace
+     */
+    public function setWorkPlace($workPlace)
+    {
+        $this->workPlace = $workPlace;
+    }
+    
+    
 }

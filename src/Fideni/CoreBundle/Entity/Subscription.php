@@ -52,9 +52,16 @@ class Subscription
     /**
      * @ORM\PrePersist()
      */
-    public function addShares()
+    public function createShares()
     {
-        dump('in');
+        $nbShares = $this->nbShares;
+        while ($nbShares > 0 ){
+            $share = new Share();
+            $share->setNominalValue($this->getSharePrice());
+            $share->setSubscription($this);
+            $this->addShare($share);
+            --$nbShares;
+        }
     }
     /**
      * Get id
@@ -126,10 +133,7 @@ class Subscription
     public function addShare(\Fideni\CoreBundle\Entity\Share $share)
     {
         if($share instanceof Share){
-            $share->setNominalValue($share->getNominalValue() . '-' . ($this->shares->count() + 1) );
             $this->shares[] = $share;
-            $share->setSubscription($this);
-
         }
 
         return $this;

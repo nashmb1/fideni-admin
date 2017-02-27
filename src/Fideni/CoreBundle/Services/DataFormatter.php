@@ -50,12 +50,14 @@ class DataFormatter
         $array = $this->serializer->normalize($data);
         $return = [];
         foreach ($array as $item) {
-            $response = $this->imagine
-                ->filterAction(
-                    new Request(),
-                    $this->uploadDir . $item['photo'],
-                    'my_thumb'
-                );
+            if(!empty($item['photo'])) {
+                $response = $this->imagine
+                    ->filterAction(
+                        new Request(),
+                        $this->uploadDir . $item['photo'],
+                        'my_thumb'
+                    );
+            }
             if ($item['id'] != $userId) {
                 $return[] = $item;
             }

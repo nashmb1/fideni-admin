@@ -37,6 +37,13 @@ class Campaign
     private $endDate;
 
     /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="blocked_until", type="date", nullable=true)
+     */
+    private $blockedUntil;
+
+    /**
      * @var float
      *
      * @ORM\Column(name="sharePrice", type="float")
@@ -50,6 +57,14 @@ class Campaign
      */
     private $enabled = true;
 
+
+    /**
+     * 
+     */
+    public function __constructor()
+    {
+        $this->blockedUntil = new \DateTime('+ 5 years');
+    }
 
     /**
      * Get id
@@ -148,8 +163,24 @@ class Campaign
 
         return $this;
     }
-    
 
+    /**
+     * @return \DateTime
+     */
+    public function getBlockedUntil()
+    {
+        return $this->blockedUntil;
+    }
+
+    /**
+     * @param \DateTime $blockedUntil
+     */
+    public function setBlockedUntil($blockedUntil)
+    {
+        $this->blockedUntil = $blockedUntil;
+    }
+    
+    
     /**
      * @return string
      */

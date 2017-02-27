@@ -35,8 +35,8 @@ class LoadUsers extends AbstractFixture implements OrderedFixtureInterface, Cont
 
     public function load(ObjectManager $manager)
     {
-        $encoder = $this->container->get('security.password_encoder');
-        
+//        $encoder = $this->container->get('security.password_encoder');
+//        
 //        foreach (range(0, 19) as $i) {
 //            $user = new User();
 //            $user->setUsername('user'.$i);
@@ -64,18 +64,18 @@ class LoadUsers extends AbstractFixture implements OrderedFixtureInterface, Cont
 //
 //            $this->addReference('user'.$i, $user);
 //        }
-
-        $user = new User();
-        $user->setUsername('admin');
-        $user->setEmail('admin@fideni.com');
-        $user->setRoles(array('ROLE_ADMIN'));
-        $user->setName('Boss');
-        $user->setSurname('Imprevu');
-        $user->setPhotoFile($this->getImage());
-        $user->setEnabled(true);
-        $user->setPassword($encoder->encodePassword($user, 'admin002'));
-        $manager->persist($user);
-        $manager->flush();
+//
+//        $user = new User();
+//        $user->setUsername('admin');
+//        $user->setEmail('admin@fideni.com');
+//        $user->setRoles(array('ROLE_ADMIN'));
+//        $user->setName('Boss');
+//        $user->setSurname('Imprevu');
+//        $user->setPhotoFile($this->getImage());
+//        $user->setEnabled(true);
+//        $user->setPassword($encoder->encodePassword($user, 'admin002'));
+//        $manager->persist($user);
+//        $manager->flush();
     }
 
     /**

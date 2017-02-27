@@ -23,7 +23,6 @@
                     <a href="{{ url('easyadmin') }}">Administration</a>
                 </li>
                 {% endif %}
-                {#{{ dump('aa.png'|imagine_filter('my_thumb')) }}#}
                 <!-- User Account Menu -->
                 <li class="dropdown user user-menu">
                     <!-- Menu Toggle Button -->
@@ -32,7 +31,7 @@
                         {% if app.user.photo is defined and app.user.photo is not empty %}
                             <img src="{{ vich_uploader_asset(app.user, 'photoFile')|imagine_filter('my_thumb') }}" class="user-image" alt="User Image">
                         {% else %}
-                            <img src="{{ asset('bundles/fidenicore/img/user5-128x128.jpg')|imagine_filter('my_thumb') }}">
+                            <img src="{{ asset('bundles/fidenicore/img/user5-128x128.jpg')|imagine_filter('my_thumb') }}" class="user-image">
                         {% endif %}
                         <!-- hidden-xs hides the username on small devices so only the image appears. -->
                         <span class="hidden-xs">{{ app.user.name }} {{ app.user.surname }}</span>
@@ -43,7 +42,7 @@
                             {% if app.user.photo is defined and app.user.photo is not empty %}
                                 <img src="{{ vich_uploader_asset(app.user, 'photoFile')|imagine_filter('my_thumb') }}" class="img-circle" alt="User Image">
                             {% else %}
-                                <img src="{{ asset('bundles/fidenicore/img/user5-128x128.jpg')|imagine_filter('my_thumb') }}">
+                                <img src="{{ asset('bundles/fidenicore/img/user5-128x128.jpg')|imagine_filter('my_thumb') }}" class="img-circle">
                             {% endif %}
 
                             <p>

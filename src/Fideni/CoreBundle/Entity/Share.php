@@ -4,6 +4,7 @@ namespace Fideni\CoreBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Fideni\UserBundle\Entity\User;
+use Symfony\Component\Validator\Constraints\DateTime;
 
 /**
  * Share
@@ -25,7 +26,7 @@ class Share
     /**
      * @var string
      *
-     * @ORM\Column(name="nominalValue", type="string", length=255, unique=true)
+     * @ORM\Column(name="nominalValue", type="string", length=255)
      */
     private $nominalValue;
 
@@ -36,8 +37,14 @@ class Share
      * @ORM\Column(name="acquisitionDate", type="datetime")
      */
     private $acquisitionDate;
-
-
+    
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="blocked_until", type="datetime", nullable=true)
+     */
+    private $blockedUntil;
+    
     /**
      *
      * @ORM\ManyToOne(targetEntity="Fideni\CoreBundle\Entity\Subscription", inversedBy="shares")
@@ -61,9 +68,13 @@ class Share
         return $this->id;
     }
 
+    /**
+     * Share constructor.
+     */
     public function __construct()
     {
-        $this->acquisitionDate = new \DateTime();
+        $this->acquisitionDate = new \DateTime('2015-05-01');
+        $this->blockedUntil = new \DateTime('+ 5 years');
     }
 
     /**
@@ -88,9 +99,8 @@ class Share
     {
         return $this->nominalValue;
     }
-
-
-
+    
+    
     /**
      * Set acquisitionDate
      *
@@ -112,6 +122,22 @@ class Share
     public function getAcquisitionDate()
     {
         return $this->acquisitionDate;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getBlockedUntil()
+    {
+        return $this->blockedUntil;
+    }
+
+    /**
+     * @param \DateTime $blockedUntil
+     */
+    public function setBlockedUntil($blockedUntil)
+    {
+        $this->blockedUntil = $blockedUntil;
     }
 
 
