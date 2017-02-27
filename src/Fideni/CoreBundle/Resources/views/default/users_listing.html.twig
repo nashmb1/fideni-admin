@@ -2,7 +2,8 @@
 <div class="box-body no-padding container">
     <ul class="users-list2 list-inline row">
         <li ng-repeat="partner in partners" class="list-inline col-md-2">
-            <img src="{{ user_image_resize_dir }}{% verbatim %}{{partner.photo}}{%endverbatim%}" alt="User Image">
+            <img ng-if="patner.photo != null" src="{{ user_image_resize_dir }}{% verbatim %}{{partner.photo}}{%endverbatim%}" alt="User Image">
+            <img ng-if="patner.photo == null" src="{{ asset('bundles/fidenicore/img/user5-128x128.jpg')|imagine_filter('my_thumb') }}" alt="User Image">
             <a class="users-list-name" href="/profile/{% verbatim %}{{partner.id}}{%endverbatim%}">{% verbatim %}{{partner.name}} {{partner.surname}}{%endverbatim%}</a>
             <span class="users-list-date">Today</span>
         </li>
