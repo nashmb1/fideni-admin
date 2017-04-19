@@ -84,6 +84,9 @@ fos_user:
     db_driver: orm # other valid values are 'mongodb', 'couchdb' and 'propel'
     firewall_name: main
     user_class: Fideni\UserBundle\Entity\User
+    from_email:
+        address: fideni@admin.fr
+        sender_name: Fideni
 
 #liipbundle
 

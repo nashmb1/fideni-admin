@@ -5,4 +5,7 @@ easy_admin:
         assets:
             favicon: '/media/cache/my_favicon/bundles/fidenicore/img/logo.jpeg'
     list:
-        actions: ['show']
+        actions:
+            - { name: 'show', label: '', icon: 'eye'}
+            - { name: 'edit', label: '', icon: 'pencil'}
+            - { name: 'delete', label: '', icon: 'trash'}

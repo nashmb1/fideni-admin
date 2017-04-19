@@ -13,6 +13,7 @@ use Fideni\CoreBundle\Entity\Cession;
 use Fideni\CoreBundle\Entity\Subscription;
 use JavierEguiluz\Bundle\EasyAdminBundle\Controller\AdminController as BaseAdminController;
 use Fideni\CoreBundle\Form\CessionType;
+use Pagerfanta\Pagerfanta;
 use Symfony\Component\PropertyAccess\PropertyAccess;
 
 class AdminController extends BaseAdminController
@@ -23,7 +24,7 @@ class AdminController extends BaseAdminController
     public function subscriptionAction()
     {
         $this->get('request_stack')->getCurrentRequest();
-        $this->entity = $this->get('easyadmin.config.manager')->getEntityConfiguration('Subscription');
+        $this->entity = $this->get('easyadmin.config.manager')->getEntityConfig('Subscription');
         $easyadmin = $this->request->attributes->get('easyadmin');
 
         $entity = $easyadmin['item'];
@@ -63,6 +64,24 @@ class AdminController extends BaseAdminController
         ));
     }
 
+
+    /**
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function userSharesAction()
+    {
+        $this->entity = $this->get('easyadmin.config.manager')->getEntityConfig('Share');
+
+        return $this->listAction();
+    }
+
+    protected function createShareListQueryBuilder()
+    {
+        $easyadmin = $this->request->attributes->get('easyadmin');
+        $user = $easyadmin['item'];
+
+        return $this->getDoctrine()->getRepository('FideniCoreBundle:Share')->getUserShareBuilder($user);
+    }
     /**
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
      */

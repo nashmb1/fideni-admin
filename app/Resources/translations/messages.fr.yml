@@ -16,6 +16,8 @@ app:
             subscription: Souscrire
             cession: Céder action
             tel1: Téléphone
+            actions: actions
+            enabled: Activé
         subscription:
             label: Souscriptions
             campaign_number: Numéro de campagne
@@ -48,4 +50,6 @@ app:
             label: Cession
         fideni:
             label: Informations générale
+
+list.row_actions: Opérations
 
