@@ -1,5 +1,6 @@
 easy_admin:
     entities:
-        Project:
-            class: Fideni\CoreBundle\Entity\Project
-            label: 'Gestion des projets'
+        Fideni:
+            class: Fideni\CoreBundle\Entity\Fideni
+            label: 'Informations générales'
+

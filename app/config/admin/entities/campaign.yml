@@ -16,3 +16,5 @@ easy_admin:
                     - { property: startDate, label: 'app.admin.campaign.start_date'}
                     - { property: endDate, label: 'app.admin.campaign.end_date'}
                     - { property: enabled, label: 'app.admin.campaign.enabled'}
+            list:
+                title: 'Nos campagnes'

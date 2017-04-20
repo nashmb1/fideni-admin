@@ -4,7 +4,7 @@ easy_admin:
             class: Fideni\UserBundle\Entity\User
             label: 'Associés'
             list:
-                title: 'Associés'
+                title: 'Liste des associés'
                 actions:
                     - { name: 'show', label: '', icon: 'eye'}
                     - { name: 'edit', label: '', icon: 'pencil'}
@@ -17,7 +17,7 @@ easy_admin:
                     - { property: 'surname', label: 'app.admin.user.surname' }
                     - email
                     - { property: tel1, label: app.admin.user.tel }
-                    - { property: last_login, type: datetime}
+                    - { property: last_login, label: app.admin.user.last_login, pe: datetime}
                     - { property: enabled, label: app.admin.user.enabled }
             show:
                 title: Detail associé

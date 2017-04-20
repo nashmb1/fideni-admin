@@ -71,6 +71,7 @@ class AdminController extends BaseAdminController
     public function userSharesAction()
     {
         $this->entity = $this->get('easyadmin.config.manager')->getEntityConfig('Share');
+        $this->request->query->set('entity', 'Share');
 
         return $this->listAction();
     }

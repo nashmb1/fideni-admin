@@ -4,22 +4,3 @@
         {{ 'Retour accueil'}}
     </a>
 {% endblock header_logo %}
-{% block header_custom_menu %}
-    {#{{ parent() }}#}
-    <ul class="nav navbar-nav">
-        <li class="user user-menu">
-            {% block user_menu %}
-                <span class="sr-only">{{ 'user.logged_in_as'|trans(domain = 'EasyAdminBundle') }}</span>
-                <i class="hidden-xs fa fa-user"></i>
-                {% if app.user|default %}
-                    {{ app.user.username|default('user.unnamed'|trans(domain = 'EasyAdminBundle')) }}
-                {% else %}
-                    {{ 'user.anonymous'|trans(domain = 'EasyAdminBundle') }}
-                {% endif %}
-            {% endblock user_menu %}
-        </li>
-        <li>
-         <a href="{{ path('fos_user_security_logout') }}"> Déconnexion</a>
-        </li>
-    </ul>
-{% endblock %}
