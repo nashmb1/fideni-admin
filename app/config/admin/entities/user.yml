@@ -4,21 +4,21 @@ easy_admin:
             class: Fideni\UserBundle\Entity\User
             label: 'Associés'
             list:
-                title: 'Associés'
+                title: 'Liste des associés'
                 actions:
-                    - { name: show }
-                    - { name: edit }
-                    - { name: delete }
-                    - { name: subscription, label: app.admin.user.subscription }
+                    - { name: 'show', label: '', icon: 'eye'}
+                    - { name: 'edit', label: '', icon: 'pencil'}
+                    - { name: 'delete', label: '', icon: 'trash'}
+                    - { name: 'subscription', label: app.admin.user.subscription }
+                    - { name: 'userShares', label: app.admin.user.actions, icon: money }
 #                    - { name: cession, label: app.admin.user.cession }
                 fields:
-                    - name
-                    - surname
+                    - { property: 'name', label: 'app.admin.user.name'}
+                    - { property: 'surname', label: 'app.admin.user.surname' }
                     - email
                     - { property: tel1, label: app.admin.user.tel }
-                    - { property: last_login, type: datetime}
-                    - enabled
-                    - locked
+                    - { property: last_login, label: app.admin.user.last_login, pe: datetime}
+                    - { property: enabled, label: app.admin.user.enabled }
             show:
                 title: Detail associé
                 fields:
@@ -29,7 +29,6 @@ easy_admin:
                     - name
                     - surname
                     - { property: last_login, type: datetime }
-                    - locked
                     - enabled
                     - formation
                     - birthDate

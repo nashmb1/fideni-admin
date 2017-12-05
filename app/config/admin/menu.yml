@@ -2,7 +2,7 @@ easy_admin:
     design:
         menu:
             - { label: 'app.admin.fideni.label', entity: 'Fideni', }
-            - { label: 'app.admin.user.label', entity: 'User', icon: 'users' }
+            - { label: 'app.admin.user.label', entity: 'User', icon: 'users', default: true }
             - { label: 'app.admin.subscription.label', entity: 'Subscription' }
             - { label: 'app.admin.share.label', entity: 'Share' }
             - { label: 'app.admin.project.label', entity: 'Project' }

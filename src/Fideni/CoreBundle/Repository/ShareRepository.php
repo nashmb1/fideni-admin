@@ -13,18 +13,20 @@ use Doctrine\ORM\Query\Expr\Join;
  */
 class ShareRepository extends EntityRepository
 {
-    public function getUserShareBuilder($userId=null){
+    /**
+     * @param null $userId
+     * @return \Doctrine\ORM\QueryBuilder
+     */
+    public function getUserShareBuilder($userId=null)
+    {
         $qb = $this->createQueryBuilder('s')
-                   ->select('s')
-                   ->innerJoin('s.subscription', 'sub', 'WITH', 'sub.user = :userId')
-                   ->setParameter('userId', $userId);
+                   ->select('s');
 
-        return $qb;
         if(!is_null($userId)){
-            return $qb->where('s.subscription.user_id = :userId')
+            $qb->innerJoin('s.subscription', 'sub', 'WITH', 'sub.user = :userId')
                 ->setParameter('userId', $userId);
         }
 
-        return $qb->getQuery()->execute();
+        return $qb;
     }
 }

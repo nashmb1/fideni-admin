@@ -8,6 +8,7 @@ easy_admin:
             edit:
                 title: "Modification souscription"
             list:
+                title: 'Les dernières souscriptions'
                 fields:
                     - id
                     - { property: 'user', label: 'app.admin.subscription.user'}
