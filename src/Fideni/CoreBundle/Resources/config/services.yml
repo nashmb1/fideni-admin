@@ -8,6 +8,6 @@ services:
         arguments: ['@fideni_core.image_manager']
         tags:
             - { name: kernel.event_listener, event: vich_uploader.post_upload, method: onPostUpload }
-    fideni_core.data_formatter:
-        class: Fideni\CoreBundle\Services\DataFormatter
-        arguments: ['@fideni_core.object_serializer', '@liip_imagine.controller', '%upload_dir%']
+#    fideni_core.data_formatter:
+#        class: Fideni\CoreBundle\Services\DataFormatter
+#        arguments: ['@fideni_core.object_serializer', '@liip_imagine.controller', '%upload_dir%']
