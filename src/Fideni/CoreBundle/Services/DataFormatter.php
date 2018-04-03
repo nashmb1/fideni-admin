@@ -47,6 +47,7 @@ class DataFormatter
      */
     public function format($data, $userId)
     {
+        return null;
         $array = $this->serializer->normalize($data);
         $return = [];
         foreach ($array as $item) {

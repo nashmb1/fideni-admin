@@ -31,9 +31,10 @@ class AjaxController extends Controller
      */
     public function getAllUsersAction()
     {
+//        die;
         $result = $this->getDoctrine()->getRepository('FideniUserBundle:User')->findAll();
-
-        return new JsonResponse($this->get('fideni_core.data_formatter')->format($result, $this->getUser()->getId()));
+        $this->get('fideni_core.data_formatter')->format($result, $this->getUser()->getId());
+        return new JsonResponse($this->get('fideni_                                                                                                                                                                                                                                                                                                                                                                                     core.data_formatter')->format($result, $this->getUser()->getId()));
     }
 
     public function getAllProjectsAction($status){
