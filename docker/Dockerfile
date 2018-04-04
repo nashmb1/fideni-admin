@@ -9,7 +9,13 @@ RUN apt-get update && apt-get install -y php7.0 \
                       libapache2-mod-php7.0 \
                       php7.0-xml
 
-RUN apt-get install -y mysql-server
+ENV MYSQL_USER=mysql \
+    MYSQL_PWD=mysql \
+    MYSQL_DATA_DIR=/var/lib/mysql \
+    MYSQL_RUN_DIR=/run/mysqld \
+    MYSQL_LOG_DIR=/var/log/mysql
+
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -y mysql-server
 
 RUN a2enmod php7.0
 RUN a2enmod rewrite
