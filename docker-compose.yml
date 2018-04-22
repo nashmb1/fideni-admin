@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+    apache:
+        build: ./docker/.
+        ports:
+          - 8065:80
+        volumes:
+          - .:/var/www/app
+          - ./docker/config:/etc/apache2/sites-enabled
+#        networks:
+#            mynetwork:
+#                aliases:
+#                   - fideni.local
+
+#
+#networks:
+#  mynetwork:
+#    driver: bridge
